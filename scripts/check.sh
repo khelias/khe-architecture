@@ -27,6 +27,7 @@ problems() {
         case "$f" in *008-*) max=150 ;; esac
         [ "$(wc -l <"$f")" -le "$max" ] || echo "LONG $f (over $max lines)"
         relative_links "$f" | while read -r l; do
+            case "$l" in /* | ../../*) echo "LINK $f -> $l (outside the repo)" ;; esac
             [ -f "decisions/$l" ] || echo "LINK $f -> $l"
         done
         if sed -n 3p "$f" | grep -q 'Superseded'; then
@@ -45,6 +46,7 @@ problems() {
     grep -nE '\*Update|[Oo]perator|Horizon|khe-meta/ROADMAP|ROADMAP\.md`? ?§|§|plans/|house/|`[0-9a-f]{7,40}`|[Ww]ritten down|[0-9]{10,}|192\.168\.' decisions/*.md | sed 's/^/FORBIDDEN /'
     [ -f ESTATE.md ] || echo "MISSING ESTATE.md"
     relative_links ESTATE.md 2>/dev/null | while read -r l; do
+        case "$l" in /* | ../*) echo "LINK ESTATE.md -> $l (outside the repo)" ;; esac
         [ -e "$l" ] || echo "LINK ESTATE.md -> $l"
     done
 }
