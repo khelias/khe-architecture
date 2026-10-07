@@ -11,9 +11,9 @@ relative_links() {
         grep -vE '^$|^[a-z]+:' || true
 }
 
-# Link target of the "- **<label>:**" bullet in the header block of $1.
-bullet_link() {
-    sed -n "1,8p" "$1" | grep -E "^- \*\*$2:\*\*" | grep -oE '\]\([^)#]+' | sed 's/^](//' | head -1
+# Link targets of the "- **<label>:**" bullet in the header block of $1.
+bullet_links() {
+    sed -n "1,8p" "$1" | grep -E "^- \*\*$2:\*\*" | grep -oE '\]\([^)#]+' | sed 's/^](//'
 }
 
 problems() {
@@ -30,20 +30,21 @@ problems() {
             [ -f "decisions/$l" ] || echo "LINK $f -> $l"
         done
         if sed -n 3p "$f" | grep -q 'Superseded'; then
-            by=$(bullet_link "$f" 'Superseded by')
+            by=$(bullet_links "$f" 'Superseded by' | head -1)
             if [ -z "$by" ]; then
                 echo "SUPERSEDED $f: no Superseded by bullet"
             elif [ ! -f "decisions/$by" ]; then
                 echo "SUPERSEDED $f -> $by does not exist"
             fi
         fi
-        old=$(bullet_link "$f" 'Supersedes')
-        if [ -n "$old" ] && [ -f "decisions/$old" ]; then
+        bullet_links "$f" 'Supersedes' | while read -r old; do
+            [ -f "decisions/$old" ] || continue
             sed -n 3p "decisions/$old" | grep -q 'Superseded' || echo "SUPERSEDES $f: decisions/$old is not marked Superseded"
-        fi
+        done
     done
     grep -nE '\*Update|[Oo]perator|Horizon|khe-meta/ROADMAP|ROADMAP\.md`? ?§|§|plans/|house/|`[0-9a-f]{7,40}`|[Ww]ritten down|[0-9]{10,}|192\.168\.' decisions/*.md | sed 's/^/FORBIDDEN /'
-    relative_links ESTATE.md | while read -r l; do
+    [ -f ESTATE.md ] || echo "MISSING ESTATE.md"
+    relative_links ESTATE.md 2>/dev/null | while read -r l; do
         [ -e "$l" ] || echo "LINK ESTATE.md -> $l"
     done
 }
