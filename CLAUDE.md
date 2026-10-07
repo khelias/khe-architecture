@@ -1,0 +1,3 @@
+# khe-architecture
+
+@AGENTS.md
