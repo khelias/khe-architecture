@@ -1,7 +1,7 @@
 # khe-architecture
 
 The public architecture of the KHE estate: the estate-level decisions in
-`decisions/` and the estate index `ESTATE.md`, which the `khe` workspace
+`decisions/` and the estate index `ESTATE.md`, which the `khe-workspace`
 `CLAUDE.md` imports. Markdown plus one check script; no build. Why this is
 a repo of its own: [ADR-012](decisions/012-estate-architecture-is-public.md).
 
@@ -46,6 +46,6 @@ each commit.
 6. **Citations.** Other repos cite an ADR here as "estate ADR-NNN", with a
    GitHub link in Markdown docs, so a later move needs no sweep.
 7. **A repo joining or leaving the estate** updates `ESTATE.md` here in the
-   same change, and `repos/repos.yaml` in the `khe` workspace repo.
+   same change, and `repos/repos.yaml` in the `khe-workspace` repo.
 
 All content in English.

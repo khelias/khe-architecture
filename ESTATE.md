@@ -5,7 +5,7 @@ Canonical navigation index for the KHE estate. It lives in the public
 beside the estate's decisions in [`decisions/`](decisions/).
 
 Loaded automatically as workspace-level context for Claude Code working
-in `<KHE_ROOT>/`, the checkout of the [`khe`](https://github.com/khelias/khe)
+in `<KHE_ROOT>/`, the checkout of the [`khe-workspace`](https://github.com/khelias/khe-workspace)
 workspace repo: its `CLAUDE.md` `@`-imports this file from
 `repos/khe-architecture/ESTATE.md`. Codex and other agents.md-only tools do not see
 this file (the spec does not support `@`-imports); they read
@@ -31,7 +31,7 @@ about which repo owns what, start here.
 
 | Repo | Visibility | Purpose | Lives at |
 |------|------------|---------|----------|
-| [khe](https://github.com/khelias/khe) | public | Workspace root (formerly `khe-ai-rules`): personal AI agent configuration (AGENTS.md, CLAUDE.md, hooks, settings) and `repos/repos.yaml`, the list of repos cloned into `repos/`. | `<KHE_ROOT>` itself; every repo in `repos/repos.yaml` (every repo here except khe itself and khelias) is cloned into `<KHE_ROOT>/repos/<name>/` by `scripts/workspace.sh clone` |
+| [khe-workspace](https://github.com/khelias/khe-workspace) | public | Workspace root (formerly `khe`, before that `khe-ai-rules`): personal AI agent configuration (AGENTS.md, CLAUDE.md, hooks, settings) and `repos/repos.yaml`, the list of repos cloned into `repos/`. | `<KHE_ROOT>` itself; every repo in `repos/repos.yaml` (every repo here except khe-workspace itself and khelias) is cloned into `<KHE_ROOT>/repos/<name>/` by `scripts/workspace.sh clone` |
 | [khelias](https://github.com/khelias/khelias) | public | GitHub profile README. | [github.com/khelias](https://github.com/khelias) - rendered on profile page |
 | [khe-architecture](https://github.com/khelias/khe-architecture) | public | The estate's architecture decisions and this estate index ([ADR-012](decisions/012-estate-architecture-is-public.md)). | [github.com/khelias/khe-architecture](https://github.com/khelias/khe-architecture) |
 | [khe-meta](https://github.com/khelias/khe-meta) | private | Cross-repo work: the estate-level roadmap, the working plans, and `house/` - the Home Assistant and HVAC documentation too identifying for the public `khe-homelab`. | [github.com/khelias/khe-meta](https://github.com/khelias/khe-meta) |
@@ -48,6 +48,7 @@ about which repo owns what, start here.
 
 Besides this index and `repos/repos.yaml`:
 
+- **Naming:** `khe-workspace` was `khe` until 2026-10-07, and GitHub redirects the old name only while no repo takes it. Never give `khe` or `khe-ai-rules` to a new repo.
 - **Public:** the default-branch ruleset from [ADR-006](decisions/006-branch-protection.md) (deletion + non-fast-forward, no bypass), plus the CI status check if it deploys.
 - **Public with a homelab runner:** fork PR approval `all_external_contributors` (ADR-006).
 - **Renovate:** `renovate.json` alone does nothing. The repo also has to be added to the Renovate app's repository selection at <https://github.com/settings/installations>. The Dependency Dashboard issue appearing is the proof that it runs.
@@ -63,4 +64,4 @@ the source of truth is in that repo:
 - [khe-ai-adventure/ROADMAP.md](https://github.com/khelias/khe-ai-adventure/blob/main/ROADMAP.md) - playtest gates, model strategy, prompt work
 - [khe-homelab/ROADMAP.md](https://github.com/khelias/khe-homelab/blob/main/ROADMAP.md) - house automation, offsite backup, DR, hardware, service wishlist
 - [khe-trips/ROADMAP.md](https://github.com/khelias/khe-trips/blob/main/ROADMAP.md) - scope decision, trip sharing, backend and co-editing, template publication
-- khe, khe-sites, khelias, ha-estfeed - no standalone ROADMAP.md (covered inline or in the private khe-meta roadmap)
+- khe-workspace, khe-sites, khelias, ha-estfeed - no standalone ROADMAP.md (covered inline or in the private khe-meta roadmap)
