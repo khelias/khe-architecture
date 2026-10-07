@@ -24,7 +24,7 @@ about which repo owns what, start here.
 
 | Repo | Visibility | Purpose | Lives at |
 |------|------------|---------|----------|
-| [khe-sites](https://github.com/khelias/khe-sites) | public | Static source for the public KHE web presence: landing + games hub + lab atlas. | [khe.ee](https://khe.ee), [games.khe.ee](https://games.khe.ee) - static via homelab |
+| [khe-sites](https://github.com/khelias/khe-sites) | public | Static source for the public KHE web presence: landing, the estate architecture page (built from this repo's `ESTATE.md` and `decisions/`) and the games hub. | [khe.ee](https://khe.ee), [games.khe.ee](https://games.khe.ee) - static via homelab |
 | [khe-homelab](https://github.com/khelias/khe-homelab) | public | Self-hosted Proxmox + Docker Compose infra: core, media, apps, home and observability stacks. | The homelab itself (Proxmox VM at home, Cloudflare Tunnel for public services) |
 
 ## Meta layer

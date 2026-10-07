@@ -3,9 +3,9 @@
 The architecture decisions of the KHE estate, the set of repos under
 [github.com/khelias](https://github.com/khelias) and the homelab that runs
 them. Each decision that spans more than one repo is written down here as
-an architecture decision record (ADR), for publication: they will be
-rendered at [khe.ee/architecture](https://khe.ee/architecture) once that
-page exists.
+an architecture decision record (ADR), for publication. They are rendered,
+one page each, at [khe.ee/architecture](https://khe.ee/architecture/),
+which `khe-sites` builds from this repo on every deploy and at least weekly.
 
 ## Reading an ADR
 
