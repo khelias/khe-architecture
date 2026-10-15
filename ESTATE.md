@@ -26,6 +26,7 @@ about which repo owns what, start here.
 |------|------------|---------|----------|
 | [khe-sites](https://github.com/khelias/khe-sites) | public | Static source for the public KHE web presence: landing, the estate architecture page (built from this repo's `ESTATE.md` and `decisions/`) and the games hub. | [khe.ee](https://khe.ee), [games.khe.ee](https://games.khe.ee) - static via homelab |
 | [khe-homelab](https://github.com/khelias/khe-homelab) | public | Self-hosted Proxmox + Docker Compose infra: core, media, apps, home and observability stacks. | The homelab itself (Proxmox VM at home, Cloudflare Tunnel for public services) |
+| [khe-home-assistant](https://github.com/khelias/khe-home-assistant) | public | Home Assistant configuration for the house: YAML packages, the dashboard generator and the 3D house view. Identifying data stays in khe-meta. | The homelab's Home Assistant container; its own runner copies the config into HA's config volume on push |
 
 ## Meta layer
 
@@ -34,7 +35,7 @@ about which repo owns what, start here.
 | [khe-workspace](https://github.com/khelias/khe-workspace) | public | Workspace root (formerly `khe`, before that `khe-ai-rules`): personal AI agent configuration (AGENTS.md, CLAUDE.md, hooks, settings) and `repos/repos.yaml`, the list of repos cloned into `repos/`. | `<KHE_ROOT>` itself; every repo in `repos/repos.yaml` (every repo here except khe-workspace itself and khelias) is cloned into `<KHE_ROOT>/repos/<name>/` by `scripts/workspace.sh clone` |
 | [khelias](https://github.com/khelias/khelias) | public | GitHub profile README. | [github.com/khelias](https://github.com/khelias) - rendered on profile page |
 | [khe-architecture](https://github.com/khelias/khe-architecture) | public | The estate's architecture decisions and this estate index ([ADR-012](decisions/012-estate-architecture-is-public.md)). | [github.com/khelias/khe-architecture](https://github.com/khelias/khe-architecture) |
-| [khe-meta](https://github.com/khelias/khe-meta) | private | Cross-repo work: the estate-level roadmap, the working plans, and `house/` - the Home Assistant and HVAC documentation too identifying for the public `khe-homelab`. | [github.com/khelias/khe-meta](https://github.com/khelias/khe-meta) |
+| [khe-meta](https://github.com/khelias/khe-meta) | private | Cross-repo work: the estate-level roadmap, the working plans, and `house/` - the Home Assistant and HVAC documentation too identifying for the public `khe-homelab` and `khe-home-assistant`. | [github.com/khelias/khe-meta](https://github.com/khelias/khe-meta) |
 | [ha-estfeed](https://github.com/khelias/ha-estfeed) | public (fork) | Fork of tehisain/ha-estfeed: Home Assistant integration for Elering Estfeed meter data, with the day/night grid tariff, cost sensors, the resume-point and NPS partial-hour fixes and the hourly price statistic. A permanent fork: upstream is merged in periodically, and only the two bug fixes are proposed upstream (#3, #5). Installed in the homelab HA via HACS as a custom repository. | HACS in `khe-homelab` Home Assistant |
 
 ## Where things deploy
@@ -62,6 +63,7 @@ the source of truth is in that repo:
 
 - [khe-study/ROADMAP.md](https://github.com/khelias/khe-study/blob/main/ROADMAP.md) - bounded contexts, learning platform phases 0-6
 - [khe-ai-adventure/ROADMAP.md](https://github.com/khelias/khe-ai-adventure/blob/main/ROADMAP.md) - playtest gates, model strategy, prompt work
-- [khe-homelab/ROADMAP.md](https://github.com/khelias/khe-homelab/blob/main/ROADMAP.md) - house automation, offsite backup, DR, hardware, service wishlist
+- [khe-homelab/ROADMAP.md](https://github.com/khelias/khe-homelab/blob/main/ROADMAP.md) - offsite backup, DR, hardware, service wishlist
+- [khe-home-assistant/ROADMAP.md](https://github.com/khelias/khe-home-assistant/blob/main/ROADMAP.md) - house automation phases, the self-running house
 - [khe-trips/ROADMAP.md](https://github.com/khelias/khe-trips/blob/main/ROADMAP.md) - scope decision, trip sharing, backend and co-editing, template publication
 - khe-workspace, khe-sites, khelias, ha-estfeed - no standalone ROADMAP.md (covered inline or in the private khe-meta roadmap)
