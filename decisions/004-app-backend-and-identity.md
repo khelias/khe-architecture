@@ -1,6 +1,6 @@
 # ADR-004: App backend and identity for the estate
 
-- **Status:** Proposed (2026-09-23)
+- **Status:** Accepted (2026-10-17)
 - **Related:** [ADR-009](009-backend-language-per-app.md), [ADR-011](011-cloudflare-tunnel-and-access-edge.md)
 
 ## Context
@@ -21,8 +21,7 @@ only about what ships fastest.
 
 What already exists and constrains the answer:
 
-- Postgres on the homelab runs as one container per app; today the only one
-  belongs to the photo service.
+- Postgres on the homelab runs as one container per app.
 - The homelab's backup dumps each listed database nightly and ships it
   offsite with restic to Cloudflare R2, and a scheduled job restores a dump
   from R2 into a throwaway container every week.
@@ -31,8 +30,8 @@ What already exists and constrains the answer:
   ([ADR-011](011-cloudflare-tunnel-and-access-edge.md)).
 - A self-hosted identity provider (Authentik or Authelia) waits on a RAM
   upgrade of the homelab host.
-- The only backend today is the adventure game's AI proxy (Node, Express),
-  which holds no data and has no users.
+- When this was decided, the only backend was the adventure game's AI proxy
+  (Node, Express), which holds no data and has no users.
 
 ## Decision
 
@@ -48,8 +47,13 @@ What already exists and constrains the answer:
 3. **Authentication stays at the edge and is swappable.** The app does not
    store passwords or run its own login. It verifies a JWT from a configured
    issuer against that issuer's JWKS and maps the subject and email to its own
-   user row. Today the issuer is Cloudflare Access (email one-time PIN); after
-   the RAM upgrade it can be Authentik over OIDC, and the swap is
+   user row. The first issuer is Cloudflare Access with the email one-time
+   PIN, and it is enough for invited friends, so co-editing does not wait for
+   a self-hosted provider. An app that admits invited people gets an Access
+   application of its own, with its own email allowlist and without the
+   shared policy's location rule
+   ([ADR-011](011-cloudflare-tunnel-and-access-edge.md) point 2). After the
+   RAM upgrade the issuer can be Authentik over OIDC, and the swap is
    configuration, not code.
 
 4. **Authorization is the app's job.** Who may see or change what is data in
@@ -63,9 +67,10 @@ What already exists and constrains the answer:
    write proposals that a person accepts; they never write directly.
 
 6. **Operational baseline from day one:** a health endpoint in the uptime
-   monitor, structured logs picked up by the log pipeline, and one tested
-   restore of the app's dump before any data that is not the family's own
-   enters it.
+   monitor, structured logs picked up by the log pipeline, and a restore
+   test: the app's database joins the weekly restore check in the same change
+   that creates it, and one passing run that restores it comes before any
+   data that is not the family's own enters it.
 
 The backend language per app is decided in
 [ADR-009](009-backend-language-per-app.md).
@@ -81,8 +86,7 @@ The backend language per app is decided in
 
 ## Consequences
 
-- `khe-study`'s open "auth provider" question is answered once this ADR is
-  accepted.
+- `khe-study`'s open "auth provider" question is answered by point 3.
 - The `khe-trips` scope changes from "no accounts" to invite-only accounts.
   Open sign-up and a public hosted service stay out of scope.
 - Friends' names and emails will live on the homelab. That is why the restore
