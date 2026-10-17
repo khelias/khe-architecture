@@ -18,7 +18,7 @@ about which repo owns what, start here.
 |------|------------|---------|----------|
 | [khe-study](https://github.com/khelias/khe-study) | public | Educational web game platform; small games for the Estonian curriculum. | [games.khe.ee/study](https://games.khe.ee/study) - static via homelab |
 | [khe-ai-adventure](https://github.com/khelias/khe-ai-adventure) | public | AI-narrated pass-the-phone party game (3-6 players). | [games.khe.ee/adventure](https://games.khe.ee/adventure) - `adventure-web` + `adventure-proxy` containers in the homelab games stack, images from GHCR ([ADR-008](decisions/008-container-images.md)) |
-| [khe-trips](https://github.com/khelias/khe-trips) | private | Private family trip atlas. | trips.khe.ee - homelab, behind Cloudflare Access; shared trips at `khe.ee/r/<slug>/` via the landing container |
+| [khe-trips](https://github.com/khelias/khe-trips) | private | Private family trip atlas. | trips.khe.ee - homelab, behind Cloudflare Access; shared trips at `khe.ee/r/<slug>/` and the public demo at [khe.ee/trips](https://khe.ee/trips/) ([ADR-013](decisions/013-trips-public-demo.md)) via the landing container |
 
 ## Foundations
 
@@ -40,7 +40,7 @@ about which repo owns what, start here.
 
 ## Where things deploy
 
-- **Homelab** (Proxmox VM at home, behind Cloudflare Tunnel) hosts the public `khe.ee`, `games.khe.ee` and its sub-paths (`/study`, `/adventure`), `pages.khe.ee` and the khe-trips share sites at `khe.ee/r/<slug>/` (landing container); `trips.khe.ee`, `dash.khe.ee` and `draft.khe.ee` behind Cloudflare Access; `photos.khe.ee`, `vault.khe.ee` and `status.khe.ee` on the tunnel behind their own app login (the status page itself is public); and the LAN-only services in `khe-homelab/services/` (Home Assistant, AdGuard, NPM admin, Grafana). The tunnel and Access tables are in `khe-homelab/infrastructure/cloudflare.md`.
+- **Homelab** (Proxmox VM at home, behind Cloudflare Tunnel) hosts the public `khe.ee`, `games.khe.ee` and its sub-paths (`/study`, `/adventure`), `pages.khe.ee` and the khe-trips share sites at `khe.ee/r/<slug>/` and demo at `khe.ee/trips/` (landing container); `trips.khe.ee`, `dash.khe.ee` and `draft.khe.ee` behind Cloudflare Access; `photos.khe.ee`, `vault.khe.ee` and `status.khe.ee` on the tunnel behind their own app login (the status page itself is public); and the LAN-only services in `khe-homelab/services/` (Home Assistant, AdGuard, NPM admin, Grafana). The tunnel and Access tables are in `khe-homelab/infrastructure/cloudflare.md`.
 - **GHCR** (`ghcr.io/khelias/*`, public packages) holds the images the estate builds in CI; `khe-homelab` pins them by digest and each app's CI moves its pins through an auto-merging PR ([ADR-008](decisions/008-container-images.md)). `khe-ai-adventure` is the first app on it.
 - **GitHub** renders `khelias/khelias` on the profile page.
 - **No third-party hosting** is currently in use. Adding a Cloudflare Pages or Netlify fallback for the static apps is on the private khe-meta roadmap.
