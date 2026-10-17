@@ -1,6 +1,6 @@
 # ADR-007: One rule for automated writers
 
-- **Status:** Proposed (2026-10-02)
+- **Status:** Accepted (2026-10-17)
 - **Related:** [ADR-004](004-app-backend-and-identity.md), [ADR-008](008-container-images.md)
 
 ## Context
@@ -39,7 +39,9 @@ An automated writer works in one of two modes:
      fallback.
 
 The register of writers, with each one's mode, envelope and fallback, is
-kept with the estate roadmap. A new writer is added to it in the same change
+kept in the estate's private working layer, `khe-meta`, beside the roadmap,
+because it lists the house's writers and the writers still without a
+fallback. A new writer is added to it in the same change
 that adds the writer, and a writer that acts without a named fallback is
 recorded there as an open item until it has one.
 
@@ -54,7 +56,7 @@ recorded there as an open item until it has one.
 
 ## Consequences
 
-- Once accepted, a new writer cites this ADR and joins the register.
+- A new writer cites this ADR and joins the register.
 - A writer whose mistake is physical, such as heating control, writes only
   after its envelope and fallback are written and reviewed.
 - Writers that act today without a written fallback become visible as open
