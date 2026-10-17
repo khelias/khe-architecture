@@ -27,6 +27,7 @@ about which repo owns what, start here.
 | [khe-sites](https://github.com/khelias/khe-sites) | public | Static source for the public KHE web presence: landing, the estate architecture page (built from this repo's `ESTATE.md` and `decisions/`), the 3D house demo (built by khe-home-assistant from its made-up test house) and the games hub. | [khe.ee](https://khe.ee), [khe.ee/ha](https://khe.ee/ha/), [games.khe.ee](https://games.khe.ee) - static via homelab |
 | [khe-homelab](https://github.com/khelias/khe-homelab) | public | Self-hosted Proxmox + Docker Compose infra: core, media, apps, home and observability stacks. | The homelab itself (Proxmox VM at home, Cloudflare Tunnel for public services) |
 | [khe-home-assistant](https://github.com/khelias/khe-home-assistant) | public | Home Assistant configuration for the house: YAML packages, the dashboard generator and the 3D house view. Identifying data stays in khe-meta. | The homelab's Home Assistant container; its own runner copies the config into HA's config volume on push |
+| [khe-ui](https://github.com/khelias/khe-ui) | public | Shared UI packages for the apps, first the KHE site header (`@khelias/ui`: CSS custom properties, an HTML-string renderer and a React component), released with semver and pinned in each app ([ADR-014](decisions/014-shared-ui-packages.md)). | [npmjs.com/package/@khelias/ui](https://www.npmjs.com/package/@khelias/ui) - published by its tag-triggered release workflow |
 
 ## Meta layer
 
@@ -42,6 +43,7 @@ about which repo owns what, start here.
 
 - **Homelab** (Proxmox VM at home, behind Cloudflare Tunnel) hosts the public `khe.ee`, `games.khe.ee` and its sub-paths (`/study`, `/adventure`), `pages.khe.ee` and the khe-trips share sites at `khe.ee/r/<slug>/` and demo at `khe.ee/trips/` (landing container); `trips.khe.ee`, `dash.khe.ee` and `draft.khe.ee` behind Cloudflare Access; `photos.khe.ee`, `vault.khe.ee` and `status.khe.ee` on the tunnel behind their own app login (the status page itself is public); and the LAN-only services in `khe-homelab/services/` (Home Assistant, AdGuard, NPM admin, Grafana). The tunnel and Access tables are in `khe-homelab/infrastructure/cloudflare.md`.
 - **GHCR** (`ghcr.io/khelias/*`, public packages) holds the images the estate builds in CI; `khe-homelab` pins them by digest and each app's CI moves its pins through an auto-merging PR ([ADR-008](decisions/008-container-images.md)). `khe-ai-adventure` is the first app on it.
+- **npmjs** holds `@khelias/ui` from `khe-ui`, published by a tag-triggered workflow on a GitHub-hosted runner through trusted publishing with provenance, no stored token. Each app pins it and merges its own bump; no consumer automerges it ([ADR-014](decisions/014-shared-ui-packages.md)).
 - **GitHub** renders `khelias/khelias` on the profile page.
 - **No third-party hosting** is currently in use. Adding a Cloudflare Pages or Netlify fallback for the static apps is on the private khe-meta roadmap.
 
@@ -54,6 +56,7 @@ Besides this index and `repos/repos.yaml`:
 - **Public with a homelab runner:** fork PR approval `all_external_contributors` (ADR-006).
 - **Renovate:** `renovate.json` alone does nothing. The repo also has to be added to the Renovate app's repository selection at <https://github.com/settings/installations>. The Dependency Dashboard issue appearing is the proof that it runs.
 - **Ships a container image:** a pin App of its own (like `khe-adventure-pins`: Contents and Pull requests write, installed on `khe-homelab` only), a `homelab-pin` environment limited to `main` holding its secrets, one `PIN_APPS` line in homelab's `validate.yml` and one `source_repo` entry in `scripts/verify-estate-pins.sh` ([ADR-008](decisions/008-container-images.md)). The first publish creates each GHCR package private; make it public once in its package settings. A private repo has no attestations on GitHub Free, so decide the pin check first.
+- **Publishes to npm:** the package page's trusted publisher (owner, repo, workflow file, environment) and Publishing access that requires 2FA and disallows tokens. Trusted publishing works only from a GitHub-hosted runner, and the package must exist first, so the first version is published by hand. Every consumer's Renovate config turns automerge off for the package ([ADR-014](decisions/014-shared-ui-packages.md)).
 - **Private:** GitHub Free has no auto-merge there. `gh api -X PATCH -F allow_auto_merge=true` answers 200 and leaves the field `false`, so do not spend time on it. Renovate's `platformAutomerge` falls back to its own merge.
 
 ## Per-repo roadmaps
@@ -66,4 +69,4 @@ the source of truth is in that repo:
 - [khe-homelab/ROADMAP.md](https://github.com/khelias/khe-homelab/blob/main/ROADMAP.md) - offsite backup, DR, hardware, service wishlist
 - [khe-home-assistant/ROADMAP.md](https://github.com/khelias/khe-home-assistant/blob/main/ROADMAP.md) - house automation phases, the self-running house
 - [khe-trips/ROADMAP.md](https://github.com/khelias/khe-trips/blob/main/ROADMAP.md) - scope decision, trip sharing, backend and co-editing, template publication
-- khe-workspace, khe-sites, khelias, ha-estfeed - no standalone ROADMAP.md (covered inline or in the private khe-meta roadmap)
+- khe-workspace, khe-sites, khe-ui, khelias, ha-estfeed - no standalone ROADMAP.md (covered inline or in the private khe-meta roadmap)
