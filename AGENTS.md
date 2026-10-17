@@ -13,6 +13,14 @@ line per problem and exits 1 if it printed anything. CI runs it on every
 push and pull request to `main`; the workspace commit gate runs it before
 each commit.
 
+Automated writers
+([estate ADR-007](decisions/007-automated-writers.md)): Renovate automerges
+GitHub Actions minor and patch updates, digests and pins (`renovate.json`).
+Nothing here deploys; `khe-sites` builds the architecture page from this
+repo at its next deploy. The way back from a bad automerge is to revert its
+commit on `main` and push. A new automated writer joins the estate's writer
+register in khe-meta in the same change.
+
 ## Rules
 
 1. **Everything here is public.** Nothing identifying (addresses, device
