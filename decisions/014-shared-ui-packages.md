@@ -2,7 +2,7 @@
 
 - **Status:** Accepted (2026-10-17)
 - **Supersedes:** [ADR-002](002-independent-stacks.md)
-- **Related:** [ADR-001](001-repo-per-product.md), [ADR-003](003-adventure-proxy-stays-adventure-only.md), [ADR-008](008-container-images.md), [ADR-015](015-family-design-layer.md)
+- **Related:** [ADR-001](001-repo-per-product.md), [ADR-003](003-adventure-proxy-stays-adventure-only.md), [ADR-008](008-container-images.md), [ADR-015](015-family-design-layer.md), [ADR-017](017-shared-theme-toggle-and-footer.md)
 
 ## Context
 

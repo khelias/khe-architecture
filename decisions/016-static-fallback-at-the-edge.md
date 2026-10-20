@@ -1,7 +1,7 @@
 # ADR-016: A Cloudflare Worker serves a copy of the static sites when the homelab is down
 
 - **Status:** Accepted (2026-10-20)
-- **Related:** [ADR-010](010-one-host-docker-compose.md), [ADR-011](011-cloudflare-tunnel-and-access-edge.md), [ADR-013](013-trips-public-demo.md), [ADR-007](007-automated-writers.md)
+- **Related:** [ADR-010](010-one-host-docker-compose.md), [ADR-011](011-cloudflare-tunnel-and-access-edge.md), [ADR-013](013-trips-public-demo.md), [ADR-007](007-automated-writers.md), [ADR-017](017-shared-theme-toggle-and-footer.md)
 
 ## Context
 

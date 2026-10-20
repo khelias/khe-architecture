@@ -1,7 +1,7 @@
 # ADR-015: The KHE sites read as one family: shared chrome, one accent per room
 
 - **Status:** Accepted (2026-10-17)
-- **Related:** [ADR-014](014-shared-ui-packages.md), [ADR-012](012-estate-architecture-is-public.md), [ADR-013](013-trips-public-demo.md)
+- **Related:** [ADR-014](014-shared-ui-packages.md), [ADR-012](012-estate-architecture-is-public.md), [ADR-013](013-trips-public-demo.md), [ADR-017](017-shared-theme-toggle-and-footer.md)
 
 ## Context
 
