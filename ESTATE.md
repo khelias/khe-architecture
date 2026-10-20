@@ -45,7 +45,7 @@ about which repo owns what, start here.
 - **GHCR** (`ghcr.io/khelias/*`, public packages) holds the images the estate builds in CI; `khe-homelab` pins them by digest and each app's CI moves its pins through an auto-merging PR ([ADR-008](decisions/008-container-images.md)). `khe-ai-adventure` is the first app on it.
 - **npmjs** holds `@khelias/ui` from `khe-ui`, published by a tag-triggered workflow on a GitHub-hosted runner through trusted publishing with provenance, no stored token. Each app pins it and merges its own bump; no consumer automerges it ([ADR-014](decisions/014-shared-ui-packages.md)).
 - **GitHub** renders `khelias/khelias` on the profile page.
-- **No third-party hosting** is currently in use. Adding a Cloudflare Pages or Netlify fallback for the static apps is on the private khe-meta roadmap.
+- **Cloudflare Workers** hold a fallback copy of the static `khe.ee` and `games.khe.ee` sites (not `trips.khe.ee`), served on the two routes only when the homelab answers 5xx or not at all. `khe-homelab` owns the Worker and syncs the copy hourly from what the homelab serves ([ADR-016](decisions/016-static-fallback-at-the-edge.md)).
 
 ## Adding a repo
 

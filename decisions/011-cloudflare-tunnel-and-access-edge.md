@@ -1,7 +1,7 @@
 # ADR-011: Public traffic enters only through Cloudflare Tunnel, private apps sit behind Cloudflare Access
 
 - **Status:** Accepted (2026-04-13)
-- **Related:** [ADR-004](004-app-backend-and-identity.md), [ADR-010](010-one-host-docker-compose.md)
+- **Related:** [ADR-004](004-app-backend-and-identity.md), [ADR-010](010-one-host-docker-compose.md), [ADR-016](016-static-fallback-at-the-edge.md)
 
 ## Context
 

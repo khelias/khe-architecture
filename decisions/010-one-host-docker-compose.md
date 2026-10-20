@@ -1,7 +1,7 @@
 # ADR-010: One host, one Docker VM, every service a Compose stack
 
 - **Status:** Accepted (2026-04-13)
-- **Related:** [ADR-008](008-container-images.md), [ADR-011](011-cloudflare-tunnel-and-access-edge.md)
+- **Related:** [ADR-008](008-container-images.md), [ADR-011](011-cloudflare-tunnel-and-access-edge.md), [ADR-016](016-static-fallback-at-the-edge.md)
 
 ## Context
 
