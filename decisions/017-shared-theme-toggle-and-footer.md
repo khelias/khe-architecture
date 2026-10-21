@@ -1,7 +1,7 @@
 # ADR-017: The shared UI package carries the theme toggle and the site footer
 
 - **Status:** Accepted (2026-10-20)
-- **Related:** [ADR-014](014-shared-ui-packages.md), [ADR-015](015-family-design-layer.md), [ADR-016](016-static-fallback-at-the-edge.md)
+- **Related:** [ADR-014](014-shared-ui-packages.md), [ADR-015](015-family-design-layer.md), [ADR-016](016-static-fallback-at-the-edge.md), [ADR-018](018-rooms-menu-in-the-shared-header.md)
 
 ## Context
 
