@@ -52,8 +52,8 @@ about which repo owns what, start here.
 Besides this index and `repos/repos.yaml`:
 
 - **Naming:** `khe-workspace` was `khe` until 2026-10-07, and GitHub redirects the old name only while no repo takes it. Never give `khe` or `khe-ai-rules` to a new repo.
-- **Public:** the default-branch ruleset from [ADR-006](decisions/006-branch-protection.md) (deletion + non-fast-forward, no bypass), plus the CI status check if it deploys.
-- **Public with a homelab runner:** fork PR approval `all_external_contributors` (ADR-006).
+- **Public:** the default-branch ruleset from [ADR-020](decisions/020-agent-work-through-pull-requests.md) (deletion + non-fast-forward, no bypass), plus the CI status check if it deploys. A repo on the pull request route also requires the personal-data scan, allows auto-merge and is marked `pr: true` in `repos/repos.yaml` (ADR-020 point 3).
+- **Public with a homelab runner:** fork PR approval `all_external_contributors` (ADR-020).
 - **Renovate:** `renovate.json` alone does nothing. The repo also has to be added to the Renovate app's repository selection at <https://github.com/settings/installations>. The Dependency Dashboard issue appearing is the proof that it runs.
 - **Ships a container image:** a pin App of its own (like `khe-adventure-pins`: Contents and Pull requests write, installed on `khe-homelab` only), a `homelab-pin` environment limited to `main` holding its secrets, one `PIN_APPS` line in homelab's `validate.yml` and one `source_repo` entry in `scripts/verify-estate-pins.sh` ([ADR-008](decisions/008-container-images.md)). The first publish creates each GHCR package private; make it public once in its package settings. A private repo has no attestations on GitHub Free, so decide the pin check first.
 - **Publishes to npm:** the package page's trusted publisher (owner, repo, workflow file, environment) and Publishing access that requires 2FA and disallows tokens. Trusted publishing works only from a GitHub-hosted runner, and the package must exist first, so the first version is published by hand. Every consumer's Renovate config turns automerge off for the package ([ADR-014](decisions/014-shared-ui-packages.md)).
