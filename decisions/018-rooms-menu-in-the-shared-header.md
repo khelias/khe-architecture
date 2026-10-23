@@ -1,6 +1,7 @@
 # ADR-018: The shared header names the room in a rooms menu, and the package carries the room accents
 
-- **Status:** Accepted (2026-10-20)
+- **Status:** Superseded (2026-10-23)
+- **Superseded by:** [ADR-021](021-family-shell-and-design-check.md)
 - **Supersedes:** [ADR-015](015-family-design-layer.md)
 - **Related:** [ADR-014](014-shared-ui-packages.md), [ADR-017](017-shared-theme-toggle-and-footer.md)
 
