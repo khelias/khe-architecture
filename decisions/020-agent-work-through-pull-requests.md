@@ -1,6 +1,7 @@
 # ADR-020: Agent work reaches main through a pull request whose checks pass
 
-- **Status:** Accepted (2026-10-22)
+- **Status:** Superseded (2026-11-12)
+- **Superseded by:** [ADR-023](023-agent-pushes-where-its-session-allows.md)
 - **Supersedes:** [ADR-006](006-branch-protection.md)
 - **Related:** [ADR-007](007-automated-writers.md), [ADR-008](008-container-images.md), [ADR-014](014-shared-ui-packages.md)
 
