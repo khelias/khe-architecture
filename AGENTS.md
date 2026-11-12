@@ -1,5 +1,8 @@
 # khe-architecture
 
+Workspace-wide rules (push, review, docs, estate ADRs) are in [khe-workspace
+`AGENTS.md`](https://github.com/khelias/khe-workspace/blob/main/AGENTS.md).
+
 The public architecture of the KHE estate: the estate-level decisions in
 `decisions/` and the estate index `ESTATE.md`, which the `khe-workspace`
 `CLAUDE.md` imports. Markdown plus one check script; no build. Why this is
@@ -18,8 +21,7 @@ Automated writers
 GitHub Actions minor and patch updates, digests and pins (`renovate.json`).
 Nothing here deploys; `khe-sites` builds the architecture page from this
 repo at its next deploy. The way back from a bad automerge is to revert its
-commit on `main` and push. A new automated writer joins the estate's writer
-register in khe-meta in the same change.
+commit on `main` and push.
 
 ## Rules
 
