@@ -19,6 +19,7 @@ about which repo owns what, start here.
 | [khe-study](https://github.com/khelias/khe-study) | public | Educational web game platform; small games for the Estonian curriculum. | [games.khe.ee/study](https://games.khe.ee/study) - static via homelab |
 | [khe-ai-adventure](https://github.com/khelias/khe-ai-adventure) | public | AI-narrated pass-the-phone party game (3-6 players). | [games.khe.ee/adventure](https://games.khe.ee/adventure) - `adventure-web` + `adventure-proxy` containers in the homelab games stack, images from GHCR ([ADR-008](decisions/008-container-images.md)) |
 | [khe-trips](https://github.com/khelias/khe-trips) | private | Private family trip atlas. | trips.khe.ee - homelab, behind Cloudflare Access; shared trips at `khe.ee/r/<slug>/` and the public demo at [khe.ee/trips](https://khe.ee/trips/) ([ADR-013](decisions/013-trips-public-demo.md)) via the landing container |
+| [khe-albums](https://github.com/khelias/khe-albums) | private | Family photo album selection: picks the frames for trip, season and event albums from the home photo library and writes them as Apple Photos favourites for review ([ADR-026](decisions/026-family-albums-from-the-home-photo-library.md)). | The family Mac - a local tool, not deployed |
 
 ## Foundations
 
