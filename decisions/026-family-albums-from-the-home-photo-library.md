@@ -55,8 +55,9 @@ in the loop.
 - **A feature of the trips app:** albums cover seasons and events as well as
   trips, and the trips app has no access to the photo library; it would
   gain a second concern and a family-data dependency.
-- **Writing hearts in Immich:** the Immich hearts did not travel back to the
-  other libraries in testing, and Immich is the record the tool learns from.
+- **Writing hearts in Immich:** no tested path carries a heart set in Immich
+  out to Apple Photos or Google Photos, and Immich is the record the tool
+  learns from.
 
 ## Consequences
 
