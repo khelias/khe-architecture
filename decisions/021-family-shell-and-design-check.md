@@ -2,7 +2,7 @@
 
 - **Status:** Accepted (2026-10-23)
 - **Supersedes:** [ADR-018](018-rooms-menu-in-the-shared-header.md)
-- **Related:** [ADR-014](014-shared-ui-packages.md), [ADR-017](017-shared-theme-toggle-and-footer.md), [ADR-025](025-the-house-dashboard-keeps-its-own-look.md) (the house dashboard keeps its own look), [ADR-028](028-the-stories-room-keeps-its-own-look.md) (the stories room keeps its own look)
+- **Related:** [ADR-014](014-shared-ui-packages.md), [ADR-017](017-shared-theme-toggle-and-footer.md), [ADR-025](025-the-house-dashboard-keeps-its-own-look.md) (the house dashboard keeps its own look), [ADR-028](028-the-stories-room-keeps-its-own-look.md) (the stories room keeps its own look), [ADR-030](030-the-portfolio-frame-and-the-product-view.md) (point 6 on product pages)
 
 ## Context
 
