@@ -1,7 +1,7 @@
 # ADR-013: A public demo of the trip atlas at khe.ee/trips/ shows only trips that are over
 
 - **Status:** Accepted (2026-10-17)
-- **Related:** [ADR-011](011-cloudflare-tunnel-and-access-edge.md), [ADR-004](004-app-backend-and-identity.md), [ADR-001](001-repo-per-product.md)
+- **Related:** [ADR-011](011-cloudflare-tunnel-and-access-edge.md), [ADR-004](004-app-backend-and-identity.md), [ADR-001](001-repo-per-product.md), [ADR-022](022-home-route-for-access-only-apps.md)
 
 ## Context
 

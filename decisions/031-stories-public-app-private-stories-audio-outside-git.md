@@ -1,7 +1,7 @@
 # ADR-031: Stories: public app code, private stories, audio outside git
 
 - **Status:** Accepted (2026-11-16)
-- **Related:** [ADR-001](001-repo-per-product.md) (deviates: a public app deployed by its private content repo), [ADR-013](013-trips-public-demo.md), [ADR-016](016-static-fallback-at-the-edge.md) (deviates from points 1-2), [ADR-017](017-shared-theme-toggle-and-footer.md), [ADR-028](028-the-stories-room-keeps-its-own-look.md) (replaces point 3), [ADR-029](029-family-stories-are-published-with-the-childrens-names.md) (replaces point 4 for stories published from now on), [ADR-030](030-the-portfolio-frame-and-the-product-view.md) (deviates from point 2 on stories.khe.ee)
+- **Related:** [ADR-001](001-repo-per-product.md) (deviates: a public app deployed by its private content repo), [ADR-013](013-trips-public-demo.md), [ADR-016](016-static-fallback-at-the-edge.md) (deviates from points 1-2), [ADR-017](017-shared-theme-toggle-and-footer.md), [ADR-028](028-the-stories-room-keeps-its-own-look.md) (replaces point 3), [ADR-029](029-family-stories-are-published-with-the-childrens-names.md) (replaces point 4 for stories published from now on), [ADR-030](030-the-portfolio-frame-and-the-product-view.md) (deviates from point 2 on stories.khe.ee), [ADR-022](022-home-route-for-access-only-apps.md)
 
 ## Context
 

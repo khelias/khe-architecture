@@ -1,7 +1,7 @@
 # ADR-004: App backend and identity for the estate
 
 - **Status:** Accepted (2026-10-17)
-- **Related:** [ADR-009](009-backend-language-per-app.md), [ADR-011](011-cloudflare-tunnel-and-access-edge.md)
+- **Related:** [ADR-009](009-backend-language-per-app.md), [ADR-011](011-cloudflare-tunnel-and-access-edge.md), [ADR-022](022-home-route-for-access-only-apps.md)
 
 ## Context
 
