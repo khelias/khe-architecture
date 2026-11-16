@@ -1,7 +1,7 @@
 # ADR-030: The portfolio frame and the product view
 
 - **Status:** Accepted (2026-11-16)
-- **Related:** [ADR-014](014-shared-ui-packages.md), [ADR-017](017-shared-theme-toggle-and-footer.md), [ADR-021](021-family-shell-and-design-check.md) (replaces point 6 on product pages), [ADR-028](028-the-stories-room-keeps-its-own-look.md), [ADR-031](031-stories-public-app-private-stories-audio-outside-git.md) (product view only on stories.khe.ee)
+- **Related:** [ADR-014](014-shared-ui-packages.md), [ADR-017](017-shared-theme-toggle-and-footer.md), [ADR-021](021-family-shell-and-design-check.md) (replaces point 6 on product pages), [ADR-028](028-the-stories-room-keeps-its-own-look.md), [ADR-031](031-stories-public-app-private-stories-audio-outside-git.md) (product view only on stories.khe.ee), [ADR-034](034-the-demo-line-links-the-real-site.md) (replaces point 4)
 
 ## Context
 
