@@ -1,7 +1,7 @@
 # ADR-029: Family stories are published with the children's names
 
 - **Status:** Accepted (2026-11-16)
-- **Related:** [ADR-012](012-estate-architecture-is-public.md), [ADR-016](016-static-fallback-at-the-edge.md), [ADR-028](028-the-stories-room-keeps-its-own-look.md)
+- **Related:** [ADR-012](012-estate-architecture-is-public.md), [ADR-016](016-static-fallback-at-the-edge.md), [ADR-028](028-the-stories-room-keeps-its-own-look.md), [ADR-031](031-stories-public-app-private-stories-audio-outside-git.md) (replaces point 4 for stories published from now on)
 
 ## Context
 

@@ -1,7 +1,7 @@
 # ADR-001: Repo-per-product, not monorepo
 
 - **Status:** Accepted (2026-05-03)
-- **Related:** [ADR-012](012-estate-architecture-is-public.md)
+- **Related:** [ADR-012](012-estate-architecture-is-public.md), [ADR-031](031-stories-public-app-private-stories-audio-outside-git.md) (a public app deployed by its private content repo)
 
 ## Context
 
