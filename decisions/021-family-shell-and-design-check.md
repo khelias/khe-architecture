@@ -1,6 +1,7 @@
 # ADR-021: The family covers the application shell, and a design check in the shared package enforces it
 
-- **Status:** Accepted (2026-10-23)
+- **Status:** Superseded (2026-11-17)
+- **Superseded by:** [ADR-035](035-family-shell-and-design-check-with-its-exceptions.md)
 - **Supersedes:** [ADR-018](018-rooms-menu-in-the-shared-header.md)
 - **Related:** [ADR-014](014-shared-ui-packages.md), [ADR-017](017-shared-theme-toggle-and-footer.md), [ADR-025](025-the-house-dashboard-keeps-its-own-look.md) (the house dashboard keeps its own look), [ADR-028](028-the-stories-room-keeps-its-own-look.md) (the stories room keeps its own look), [ADR-030](030-the-portfolio-frame-and-the-product-view.md) (point 6 on product pages)
 

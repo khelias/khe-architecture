@@ -1,7 +1,7 @@
 # ADR-025: The house dashboard keeps its own look
 
 - **Status:** Accepted (2026-11-12)
-- **Related:** [ADR-021](021-family-shell-and-design-check.md), [ADR-014](014-shared-ui-packages.md)
+- **Related:** [ADR-021](021-family-shell-and-design-check.md), [ADR-014](014-shared-ui-packages.md), [ADR-035](035-family-shell-and-design-check-with-its-exceptions.md)
 
 ## Context
 

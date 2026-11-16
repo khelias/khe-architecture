@@ -1,7 +1,7 @@
 # ADR-024: Each agent rule has one home; every other file cites it
 
 - **Status:** Accepted (2026-11-12)
-- **Related:** [ADR-001](001-repo-per-product.md), [ADR-007](007-automated-writers.md), [ADR-012](012-estate-architecture-is-public.md), [ADR-021](021-family-shell-and-design-check.md), [ADR-023](023-agent-pushes-where-its-session-allows.md)
+- **Related:** [ADR-001](001-repo-per-product.md), [ADR-007](007-automated-writers.md), [ADR-012](012-estate-architecture-is-public.md), [ADR-021](021-family-shell-and-design-check.md), [ADR-023](023-agent-pushes-where-its-session-allows.md), [ADR-035](035-family-shell-and-design-check-with-its-exceptions.md)
 
 ## Context
 

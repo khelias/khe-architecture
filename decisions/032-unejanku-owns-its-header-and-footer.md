@@ -1,7 +1,7 @@
 # ADR-032: Unejänku's family build draws its own header and footer
 
 - **Status:** Accepted (2026-11-16)
-- **Related:** [ADR-028](028-the-stories-room-keeps-its-own-look.md) (replaces point 2 on stories.khe.ee), [ADR-021](021-family-shell-and-design-check.md) (points 1, 6 and 8 do not apply to the family build's header and footer), [ADR-030](030-the-portfolio-frame-and-the-product-view.md) (point 2 on stories.khe.ee), [ADR-031](031-stories-public-app-private-stories-audio-outside-git.md) (point 6), [ADR-033](033-story-pictures-are-content.md)
+- **Related:** [ADR-028](028-the-stories-room-keeps-its-own-look.md) (replaces point 2 on stories.khe.ee), [ADR-021](021-family-shell-and-design-check.md) (points 1, 6 and 8 do not apply to the family build's header and footer), [ADR-030](030-the-portfolio-frame-and-the-product-view.md) (point 2 on stories.khe.ee), [ADR-031](031-stories-public-app-private-stories-audio-outside-git.md) (point 6), [ADR-033](033-story-pictures-are-content.md), [ADR-035](035-family-shell-and-design-check-with-its-exceptions.md)
 
 ## Context
 
