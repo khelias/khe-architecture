@@ -84,7 +84,11 @@ the write, pinned actions, timeouts, a turn limit and one run at a time.
   month.
 - A bad story is on the children's shelf until we delete it; the review
   and the checks are the only gate before it.
-- The subscription token sits in a GitHub environment limited to `main`,
-  as ADR-027 point 5 accepts.
+- The subscription token and the Gemini key are repository secrets, not
+  the environment limited to `main` that ADR-027 point 5 names: GitHub
+  Free has no environment secrets in a private repository, and a paid
+  plan is not worth it for this. Only a workflow someone with write
+  access pushes can read them, which is us alone, and every job of the
+  story's chain runs from `main` only.
 - The homelab gains a small backend whose state is disposable, with its
   own image built in CI and pinned by digest (ADR-008).
