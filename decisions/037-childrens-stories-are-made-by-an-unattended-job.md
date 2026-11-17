@@ -34,14 +34,21 @@ the write, pinned actions, timeouts, a turn limit and one run at a time.
    token writes the story file. Jobs without a model take only that file,
    review it with a second model (Gemini), draw its picture and read it
    with the reader on the GitHub-hosted runner. A homelab-runner job puts
-   the audio in the store. A model-free job checks the result and commits
-   the story's own files to the content repo's `main`. The deploy then
-   publishes it to the family build and tells the service, which sends the
-   notification.
-3. **No parent approves a story before the children hear it.** The checks
-   are the second model's review, the content repo's own checks, the
-   personal-data scan and the reader's Whisper check. A story is withdrawn
-   by deleting its file. A child's story reaches the public build only by
+   the audio in the store. Right after the review, a model-free job commits
+   the story's text to the content repo's `main`; once it is read, a second
+   model-free commit adds the reading and the picture, only while the story
+   on `main` is still the run's text. Each commit is deployed to the family
+   build. The service reads the deployed catalog and tells the child twice:
+   when the text is on the shelf (request state `ready`) and when the
+   reading is (`read`). The job reports `committed` or `failed` for the
+   text, and `silent` when the reading does not come: the text stays on the
+   shelf and nobody is told. The next run starts after the reading is on
+   the shelf or has failed.
+3. **No parent approves a story before the children hear it.** The second
+   model's review, the content repo's own checks and the personal-data scan
+   gate the text; the reader's Whisper check gates only the reading. A story
+   is withdrawn by deleting its file; one withdrawn while it is read gets no
+   reading. A child's story reaches the public build only by
    the line in its front matter that publishes any story.
 4. **It is a content writer, not the builder of ADR-027 point 7.** It
    pushes story files, never code, so ADR-023 stands for it and this ADR is
