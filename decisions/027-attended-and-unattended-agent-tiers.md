@@ -1,7 +1,7 @@
 # ADR-027: Attended agent sessions run on agent-vm with Home Assistant control, unattended jobs on GitHub-hosted Actions
 
 - **Status:** Accepted (2026-11-14)
-- **Related:** [ADR-007](007-automated-writers.md), [ADR-023](023-agent-pushes-where-its-session-allows.md), [ADR-037](037-childrens-stories-are-made-by-an-unattended-job.md) (a content writer under points 4-6), [ADR-039](039-family-deal-alerts-are-an-unattended-job.md) (a content writer under points 4-6 with a tool-level egress allowlist; adds two hosts to point 3)
+- **Related:** [ADR-007](007-automated-writers.md), [ADR-023](023-agent-pushes-where-its-session-allows.md), [ADR-037](037-childrens-stories-are-made-by-an-unattended-job.md) (a content writer under points 4-6), [ADR-039](039-family-deal-alerts-are-an-unattended-job.md) (a content writer under points 4-6 with a tool-level egress allowlist; adds two hosts to point 3), [ADR-040](040-deal-alerts-call-the-claude-api-on-the-plans-api-credits.md) (replaces points 1 and 5 for the deal alerts: the Claude API with a key, not `claude-code-action` on the subscription)
 
 ## Context
 

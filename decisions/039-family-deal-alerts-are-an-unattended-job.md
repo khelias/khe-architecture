@@ -1,7 +1,7 @@
 # ADR-039: Family deal alerts are an unattended job that takes requests from a Telegram chat
 
 - **Status:** Accepted (2026-11-17)
-- **Related:** [ADR-001](001-repo-per-product.md) (the watch repo has no CI of its own), [ADR-007](007-automated-writers.md), [ADR-023](023-agent-pushes-where-its-session-allows.md) (stands), [ADR-027](027-attended-and-unattended-agent-tiers.md) (points 4-6 are the job's boundary; point 5's egress note and point 3's host list change), [ADR-037](037-childrens-stories-are-made-by-an-unattended-job.md) (the same kind of content writer)
+- **Related:** [ADR-001](001-repo-per-product.md) (the watch repo has no CI of its own), [ADR-007](007-automated-writers.md), [ADR-023](023-agent-pushes-where-its-session-allows.md) (stands), [ADR-027](027-attended-and-unattended-agent-tiers.md) (points 4-6 are the job's boundary; point 5's egress note and point 3's host list change), [ADR-037](037-childrens-stories-are-made-by-an-unattended-job.md) (the same kind of content writer), [ADR-040](040-deal-alerts-call-the-claude-api-on-the-plans-api-credits.md) (replaces points 3 and 8: the Claude API on the plan's API credits)
 
 ## Context
 
