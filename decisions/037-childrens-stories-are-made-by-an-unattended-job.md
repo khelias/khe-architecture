@@ -71,8 +71,17 @@ the write, pinned actions, timeouts, a turn limit and one run at a time.
 
 ## Consequences
 
-- The private repo's free Actions minutes pay for the readings as well as
-  its builds, so the service caps stories per month.
+- The reading is the job's cost. Measured on the private repo's 2-vCPU
+  runner, a 263-second story of 565 words took 27 minutes in all: about
+  4 minutes of reading per minute of audio, and 10 minutes to free disk,
+  install, fetch the cached model and load it. The model needs swap
+  beside the runner's 7 GB, and room freed on its disk. A story of 250-450
+  words (2-3.5 minutes of audio) costs 30-35 minutes with the job's other
+  steps and the deploy it starts.
+- The free Actions minutes are one pool of 2000 a month for all our
+  private repos: the trip atlas takes up to about 750 and the stories'
+  own builds keep 300, so the service caps the children at 25 stories a
+  month.
 - A bad story is on the children's shelf until we delete it; the review
   and the checks are the only gate before it.
 - The subscription token sits in a GitHub environment limited to `main`,
