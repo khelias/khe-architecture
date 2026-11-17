@@ -1,7 +1,7 @@
 # ADR-033: Story pictures are content, shipped as checked SVG files
 
 - **Status:** Accepted (2026-11-16)
-- **Related:** [ADR-031](031-stories-public-app-private-stories-audio-outside-git.md) (the content contract between the app and the stories), [ADR-029](029-family-stories-are-published-with-the-childrens-names.md), [ADR-032](032-unejanku-owns-its-header-and-footer.md)
+- **Related:** [ADR-031](031-stories-public-app-private-stories-audio-outside-git.md) (the content contract between the app and the stories), [ADR-029](029-family-stories-are-published-with-the-childrens-names.md), [ADR-032](032-unejanku-owns-its-header-and-footer.md), [ADR-037](037-childrens-stories-are-made-by-an-unattended-job.md) (point 1 amended by ADR-037: raster pictures on the children's shelf)
 
 ## Context
 

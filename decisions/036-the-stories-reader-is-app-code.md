@@ -1,7 +1,7 @@
 # ADR-036: The stories reader is app code
 
 - **Status:** Accepted (2026-11-17)
-- **Related:** [ADR-031](031-stories-public-app-private-stories-audio-outside-git.md) (extends point 1 to the reader), [ADR-033](033-story-pictures-are-content.md) (point 2 is about pictures and stands)
+- **Related:** [ADR-031](031-stories-public-app-private-stories-audio-outside-git.md) (extends point 1 to the reader), [ADR-033](033-story-pictures-are-content.md) (point 2 is about pictures and stands), [ADR-037](037-childrens-stories-are-made-by-an-unattended-job.md) (the reader also runs on Linux)
 
 ## Context
 

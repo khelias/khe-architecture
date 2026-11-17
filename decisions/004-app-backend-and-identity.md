@@ -1,7 +1,7 @@
 # ADR-004: App backend and identity for the estate
 
 - **Status:** Accepted (2026-10-17)
-- **Related:** [ADR-009](009-backend-language-per-app.md), [ADR-011](011-cloudflare-tunnel-and-access-edge.md), [ADR-022](022-home-route-for-access-only-apps.md)
+- **Related:** [ADR-009](009-backend-language-per-app.md), [ADR-011](011-cloudflare-tunnel-and-access-edge.md), [ADR-022](022-home-route-for-access-only-apps.md), [ADR-037](037-childrens-stories-are-made-by-an-unattended-job.md) (points 2, 5 and 6 do not apply to its stories), [ADR-038](038-a-childs-device-is-paired-once-by-a-parent.md) (point 3 extended by ADR-038: a child's paired device)
 
 ## Context
 
