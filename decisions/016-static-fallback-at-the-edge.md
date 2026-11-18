@@ -1,7 +1,7 @@
 # ADR-016: A Cloudflare Worker serves a copy of the static sites when the homelab is down
 
 - **Status:** Accepted (2026-10-20)
-- **Related:** [ADR-010](010-one-host-docker-compose.md), [ADR-011](011-cloudflare-tunnel-and-access-edge.md), [ADR-013](013-trips-public-demo.md), [ADR-007](007-automated-writers.md), [ADR-017](017-shared-theme-toggle-and-footer.md), [ADR-031](031-stories-public-app-private-stories-audio-outside-git.md) (the edge copy leaves out the stories audio), [ADR-022](022-home-route-for-access-only-apps.md)
+- **Related:** [ADR-010](010-one-host-docker-compose.md), [ADR-011](011-cloudflare-tunnel-and-access-edge.md), [ADR-013](013-trips-public-demo.md), [ADR-007](007-automated-writers.md), [ADR-017](017-shared-theme-toggle-and-footer.md), [ADR-031](031-stories-public-app-private-stories-audio-outside-git.md) (the edge copy leaves out the stories audio), [ADR-022](022-home-route-for-access-only-apps.md), [ADR-041](041-installed-apps-stay-on-their-paths-with-a-worker-each.md) (extends: no worker from the edge copy)
 
 ## Context
 

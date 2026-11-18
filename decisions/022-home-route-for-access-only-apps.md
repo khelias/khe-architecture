@@ -2,7 +2,7 @@
 
 - **Status:** Accepted (2026-11-16)
 - **Supersedes:** [ADR-011](011-cloudflare-tunnel-and-access-edge.md)
-- **Related:** [ADR-004](004-app-backend-and-identity.md), [ADR-010](010-one-host-docker-compose.md), [ADR-016](016-static-fallback-at-the-edge.md), [ADR-031](031-stories-public-app-private-stories-audio-outside-git.md) (the stories app's family build), [ADR-038](038-a-childs-device-is-paired-once-by-a-parent.md) (point 4 amended by ADR-038: a home route with paired-device writes)
+- **Related:** [ADR-004](004-app-backend-and-identity.md), [ADR-010](010-one-host-docker-compose.md), [ADR-016](016-static-fallback-at-the-edge.md), [ADR-031](031-stories-public-app-private-stories-audio-outside-git.md) (the stories app's family build), [ADR-038](038-a-childs-device-is-paired-once-by-a-parent.md) (point 4 amended by ADR-038: a home route with paired-device writes), [ADR-041](041-installed-apps-stay-on-their-paths-with-a-worker-each.md) (the saved trips open without Access)
 
 ## Context
 
