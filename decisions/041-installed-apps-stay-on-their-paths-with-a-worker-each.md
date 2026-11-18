@@ -59,7 +59,7 @@ most.
    no footer. This deviates from ADR-030 points 2 and 3.
 
 The install checklist is in
-[`ESTATE.md`](../ESTATE.md) under "Adding a repo".
+[`ESTATE.md`](https://github.com/khelias/khe-architecture/blob/main/ESTATE.md) under "Adding a repo".
 
 ## Alternatives considered
 
