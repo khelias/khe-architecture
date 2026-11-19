@@ -4,14 +4,19 @@ Workspace-wide rules (push, review, docs, estate ADRs) are in [khe-workspace
 `AGENTS.md`](https://github.com/khelias/khe-workspace/blob/main/AGENTS.md).
 
 The public architecture of the KHE estate: the estate-level decisions in
-`decisions/` and the estate index `ESTATE.md`, which the `khe-workspace`
-`CLAUDE.md` imports. Markdown plus one check script; no build. Why this is
+`decisions/`, the estate index `ESTATE.md`, which the `khe-workspace`
+`CLAUDE.md` imports, and `metrics/agent-loop.json`, the agent loop's counts
+that `khe-sites` shows on `/agents/`
+([ADR-044](decisions/044-agent-loop-numbers-are-a-counts-only-snapshot-here.md)).
+Markdown, one generated JSON file and one check script; no build. Why this is
 a repo of its own: [ADR-012](decisions/012-estate-architecture-is-public.md).
 
 ## Command
 
 `bash scripts/check.sh` checks every ADR's format, length, links and
-forbidden patterns, and every relative link in `ESTATE.md`. It prints one
+forbidden patterns, every relative link in `ESTATE.md`, and that
+`metrics/agent-loop.json` has exactly the keys ADR-044 lists, with whole
+counts. It prints one
 line per problem and exits 1 if it printed anything. CI runs it on every
 push and pull request to `main`; the workspace commit gate runs it before
 each commit.
@@ -19,7 +24,10 @@ each commit.
 Automated writers
 ([estate ADR-007](decisions/007-automated-writers.md)): Renovate automerges
 GitHub Actions minor and patch updates, digests and pins (`renovate.json`).
-Nothing here deploys; `khe-sites` builds the architecture page from this
+The workspace agent's retro pushes `metrics/agent-loop.json` to `main` with
+the fixed message "agent-loop numbers" when a count changed (khe-workspace
+`scripts/agent-metrics.sh --json`); its review skip is the one ADR-044
+point 4 names. Nothing here deploys; `khe-sites` builds the architecture page from this
 repo at its next deploy. The way back from a bad automerge is to revert its
 commit on `main` and push.
 

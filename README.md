@@ -18,6 +18,12 @@ choice, the decision, the alternatives considered and the consequences we
 accepted. An accepted ADR is not rewritten; a changed decision gets a new
 ADR.
 
+## The numbers
+
+[`metrics/agent-loop.json`](metrics/agent-loop.json) holds the counts behind
+[khe.ee/agents](https://khe.ee/agents/): what each check of the agent loop
+found and how its pushes went, refreshed when a task closes.
+
 ## The estate
 
 [`ESTATE.md`](ESTATE.md) lists every repo in the estate, what it is for and

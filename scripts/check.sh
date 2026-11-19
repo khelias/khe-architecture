@@ -16,6 +16,23 @@ bullet_links() {
     sed -n "1,8p" "$1" | grep -E "^- \*\*$2:\*\*" | grep -oE '\]\([^)#]+' | sed 's/^](//'
 }
 
+# metrics/agent-loop.json, written by the retro (ADR-044): exactly the keys
+# khe-sites reads, in the order the generator writes them, and whole counts.
+# The whole file, whitespace removed, has to match one pattern.
+metrics() {
+    f=metrics/agent-loop.json
+    [ -f "$f" ] || { echo "MISSING $f"; return; }
+    n='(0|[1-9][0-9]*)'
+    d='"[0-9]{4}-[0-9]{2}-[0-9]{2}"'
+    c="\\{\"acted\":$n,\"dropped\":$n,\"notRun\":$n,\"pending\":$n\\}"
+    shape="^\\{\"since\":$d,\"until\":$d,\"plans\":$n,\"planReview\":$c,\"planCheck\":$c,\"codeReview\":$c,\"securityReview\":$c,"
+    shape="$shape\"operator\":\\{\"acted\":$n,\"notRun\":$n,\"pending\":$n\\},"
+    shape="$shape\"push\":\\{\"unchanged\":$n,\"changed\":$n,\"discarded\":$n,\"pending\":$n\\},"
+    shape="$shape\"pushedPlans\":$n,\"revertedPlans\":$n,\"planToPush\":\\{\"count\":$n,\"medianMinutes\":$n\\}\\}$"
+    sed -n 'H;${x;s/[[:space:]]//g;p;}' "$f" | grep -qE "$shape" ||
+        echo "METRICS $f: not the keys ADR-044 lists, in the order agent-metrics.sh --json writes them, with whole counts"
+}
+
 problems() {
     for f in decisions/*.md; do
         sed -n 1p "$f" | grep -qE '^# ADR-[0-9]{3}: .+' || echo "HEAD $f"
@@ -44,6 +61,7 @@ problems() {
         done
     done
     grep -nE '\*Update|[Oo]perator|Horizon|khe-meta/ROADMAP|ROADMAP\.md`? ?§|§|plans/|house/|`[0-9a-f]{7,40}`|[Ww]ritten down|[0-9]{10,}|192\.168\.' decisions/*.md | sed 's/^/FORBIDDEN /'
+    metrics
     [ -f ESTATE.md ] || echo "MISSING ESTATE.md"
     relative_links ESTATE.md 2>/dev/null | while read -r l; do
         case "$l" in /* | ../*) echo "LINK ESTATE.md -> $l (outside the repo)" ;; esac
