@@ -1,7 +1,7 @@
 # ADR-019: khe-sites owns the analytics consent banner, and the games load it from the origin root
 
 - **Status:** Accepted (2026-10-21)
-- **Related:** [ADR-014](014-shared-ui-packages.md), [ADR-016](016-static-fallback-at-the-edge.md), [ADR-017](017-shared-theme-toggle-and-footer.md), [ADR-018](018-rooms-menu-in-the-shared-header.md)
+- **Related:** [ADR-014](014-shared-ui-packages.md), [ADR-016](016-static-fallback-at-the-edge.md), [ADR-017](017-shared-theme-toggle-and-footer.md), [ADR-018](018-rooms-menu-in-the-shared-header.md), [ADR-045](045-khe-ee-pages-from-other-repos-load-the-consent-banner-unstamped.md) (extended for unstamped consumers on khe.ee)
 
 ## Context
 
