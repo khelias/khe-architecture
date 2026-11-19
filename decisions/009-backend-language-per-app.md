@@ -1,7 +1,7 @@
 # ADR-009: One backend language per app: Java for khe-trips, TypeScript for khe-study
 
 - **Status:** Accepted (2026-09-28)
-- **Related:** [ADR-004](004-app-backend-and-identity.md), [ADR-008](008-container-images.md)
+- **Related:** [ADR-004](004-app-backend-and-identity.md), [ADR-008](008-container-images.md), [ADR-046](046-the-trips-backend-is-typescript-on-node.md) (replaces the khe-trips point: TypeScript on Node; the khe-study point stands)
 
 ## Context
 
