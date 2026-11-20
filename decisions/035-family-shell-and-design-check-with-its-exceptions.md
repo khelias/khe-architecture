@@ -2,7 +2,7 @@
 
 - **Status:** Accepted (2026-11-17)
 - **Supersedes:** [ADR-021](021-family-shell-and-design-check.md)
-- **Related:** [ADR-014](014-shared-ui-packages.md), [ADR-017](017-shared-theme-toggle-and-footer.md), [ADR-025](025-the-house-dashboard-keeps-its-own-look.md), [ADR-028](028-the-stories-room-keeps-its-own-look.md), [ADR-030](030-the-portfolio-frame-and-the-product-view.md), [ADR-031](031-stories-public-app-private-stories-audio-outside-git.md), [ADR-032](032-unejanku-owns-its-header-and-footer.md)
+- **Related:** [ADR-014](014-shared-ui-packages.md), [ADR-017](017-shared-theme-toggle-and-footer.md), [ADR-025](025-the-house-dashboard-keeps-its-own-look.md), [ADR-028](028-the-stories-room-keeps-its-own-look.md), [ADR-030](030-the-portfolio-frame-and-the-product-view.md), [ADR-031](031-stories-public-app-private-stories-audio-outside-git.md), [ADR-032](032-unejanku-owns-its-header-and-footer.md), [ADR-049](049-the-familys-type-is-familjen-grotesk.md) (the family's typeface)
 
 ## Context
 

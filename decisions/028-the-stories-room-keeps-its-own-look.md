@@ -1,7 +1,7 @@
 # ADR-028: The stories room keeps its own look
 
 - **Status:** Accepted (2026-11-15)
-- **Related:** [ADR-021](021-family-shell-and-design-check.md), [ADR-025](025-the-house-dashboard-keeps-its-own-look.md), [ADR-031](031-stories-public-app-private-stories-audio-outside-git.md) (replaces point 3; point 1 extends to stories.khe.ee), [ADR-032](032-unejanku-owns-its-header-and-footer.md) (replaces point 2 on stories.khe.ee), [ADR-035](035-family-shell-and-design-check-with-its-exceptions.md)
+- **Related:** [ADR-021](021-family-shell-and-design-check.md), [ADR-025](025-the-house-dashboard-keeps-its-own-look.md), [ADR-031](031-stories-public-app-private-stories-audio-outside-git.md) (replaces point 3; point 1 extends to stories.khe.ee), [ADR-032](032-unejanku-owns-its-header-and-footer.md) (replaces point 2 on stories.khe.ee), [ADR-035](035-family-shell-and-design-check-with-its-exceptions.md), [ADR-049](049-the-familys-type-is-familjen-grotesk.md) (the family's type; this room's content keeps its own)
 
 ## Context
 
