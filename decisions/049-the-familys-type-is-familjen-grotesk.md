@@ -55,7 +55,8 @@ favicon carry the text as paths, so a change is costly to reverse.
 
 ## Consequences
 
-- khe.ee loads two smaller font files instead of four.
+- khe.ee ships one variable font in two subset files in place of four
+  Inter weights and two serif files.
 - Each app that self-hosts fonts carries the two Familjen files and the
   licence; a page that misses them falls back to the system font.
 - The share images and the favicon are redrawn as paths from Familjen.
