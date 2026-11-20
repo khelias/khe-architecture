@@ -26,8 +26,8 @@ favicon carry the text as paths, so a change is costly to reverse.
    room's shell. The stack is `'Familjen Grotesk', system-ui,
    sans-serif`; facts keep the system monospace stack.
 2. **Each app self-hosts the two subset files** with the licence text,
-   from the Fontsource build of Google Fonts' release, and preloads the
-   latin file only. No app loads the font from a third-party host.
+   from the Fontsource build of Google Fonts' release. No app loads the
+   font from a third-party host.
 3. **The weights and tracking are in the family `DESIGN.md`**
    (ADR-035 point 3), not here.
 4. **Play areas keep their own type** under ADR-035 point 1: the
