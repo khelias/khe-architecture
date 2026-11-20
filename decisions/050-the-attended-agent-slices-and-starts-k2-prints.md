@@ -1,6 +1,7 @@
 # ADR-050: The attended agent on agent-vm slices parts and starts K2 prints, each printer command on a tap
 
-- **Status:** Accepted (2026-11-20)
+- **Status:** Superseded (2026-11-21)
+- **Superseded by:** [ADR-051](051-the-agent-reaches-the-k2-through-a-root-registered-mcp-server.md)
 - **Related:** [ADR-007](007-automated-writers.md), [ADR-023](023-agent-pushes-where-its-session-allows.md) (stands), [ADR-027](027-attended-and-unattended-agent-tiers.md) (point 3's list of what runs outside the sandbox grows by the two printer scripts), [ADR-039](039-family-deal-alerts-are-an-unattended-job.md) (the same kind of change to point 3), [ADR-043](043-household-parts-are-public-source-built-into-khe-sites.md) (the parts it prints)
 
 ## Context
