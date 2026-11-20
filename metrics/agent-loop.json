@@ -3,20 +3,20 @@
   "until": "2026-11-20",
   "plans": 63,
   "planReview": {
-    "acted": 784,
+    "acted": 824,
     "dropped": 24,
     "notRun": 0,
     "pending": 0
   },
   "planCheck": {
-    "acted": 136,
+    "acted": 142,
     "dropped": 0,
     "notRun": 9,
     "pending": 0
   },
   "codeReview": {
-    "acted": 332,
-    "dropped": 204,
+    "acted": 339,
+    "dropped": 207,
     "notRun": 3,
     "pending": 0
   },
