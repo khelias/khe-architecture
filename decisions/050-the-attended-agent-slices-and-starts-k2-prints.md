@@ -31,8 +31,10 @@ needed two for.
    change. A slicing script checks every fan line of each slice against
    the recipe that has printed well and fails a slice that differs.
 2. **Two printer scripts run outside the sandbox, and every run asks
-   us.** One reads the printer's state and files and uploads or starts a
-   sliced file; the other saves frames from the printer's camera. Each is
+   us.** One reads the printer's state and files, uploads or starts a
+   sliced file and switches the chamber light on or off for the camera,
+   with two fixed commands; the other saves frames from the printer's
+   camera. Each is
    an `excludedCommands` entry written alone and an `ask` rule in the VM's
    settings template, the way the Home Assistant scripts are (ADR-027
    point 3). The tap is our go for that run, on top of the agent's own
