@@ -47,7 +47,7 @@ Markdown docs, so a citation does not name the repo that holds it.
   drifting.
 - **A read credential for `khe-meta` in `khe-sites`.** The house
   documentation readable from the deploy job of a public repo.
-- **The [`khe`](https://github.com/khelias/khe) workspace repo.** Already
+- **The [`khe-workspace`](https://github.com/khelias/khe-workspace) repo.** Already
   public, but its role is agent tooling; the estate's architecture would
   blur it.
 - **`khe-sites` itself.** A site repo would own the estate's decisions,
@@ -69,7 +69,7 @@ Markdown docs, so a citation does not name the repo that holds it.
 - A new or changed decision reaches `khe.ee/architecture` on the next
   `khe-sites` deploy, with no credential and no copy in between.
 - `khe-architecture` gets the default-branch rules of
-  [ADR-006](006-branch-protection.md), like every public repo.
+  [ADR-023](023-agent-pushes-where-its-session-allows.md), like every public repo.
 - What ADR-005 required of `khe-meta` still holds: private is not a place
   to stash secrets, identifiers stay out of everything but the house
   documentation, and public repos that link there accept that readers

@@ -17,7 +17,8 @@ bullet_links() {
 }
 
 # metrics/agent-loop.json, written by the retro (ADR-044): exactly the keys
-# khe-sites reads, in the order the generator writes them, and whole counts.
+# khe-sites reads, in the order khe-workspace scripts/agent-metrics.sh --json
+# writes them (listed in a comment there), and whole counts.
 # The whole file, whitespace removed, has to match one pattern.
 metrics() {
     f=metrics/agent-loop.json
@@ -30,7 +31,7 @@ metrics() {
     shape="$shape\"push\":\\{\"unchanged\":$n,\"changed\":$n,\"discarded\":$n,\"pending\":$n\\},"
     shape="$shape\"pushedPlans\":$n,\"revertedPlans\":$n,\"planToPush\":\\{\"count\":$n,\"medianMinutes\":$n\\}\\}$"
     sed -n 'H;${x;s/[[:space:]]//g;p;}' "$f" | grep -qE "$shape" ||
-        echo "METRICS $f: not the keys ADR-044 lists, in the order agent-metrics.sh --json writes them, with whole counts"
+        echo "METRICS $f: not the keys khe-workspace agent-metrics.sh --json writes, in its order, with whole counts"
 }
 
 problems() {
@@ -38,23 +39,39 @@ problems() {
         sed -n 1p "$f" | grep -qE '^# ADR-[0-9]{3}: .+' || echo "HEAD $f"
         n=$(basename "$f" | cut -c1-3)
         sed -n 1p "$f" | grep -q "^# ADR-$n: " || echo "NUMBER $f: heading does not match file name"
-        sed -n 3p "$f" | grep -qE '^- \*\*Status:\*\* (Proposed|Accepted|Superseded|Deprecated) \([0-9]{4}-[0-9]{2}-[0-9]{2}\)$' || echo "STATUS $f"
-        grep '^## ' "$f" | grep -vxE '## (Context|Decision|Alternatives considered|Consequences|References)' | sed "s|^|SECTION $f: |"
-        max=120
-        case "$f" in *008-*) max=150 ;; esac
-        [ "$(wc -l <"$f")" -le "$max" ] || echo "LONG $f (over $max lines)"
+        status=$(sed -n 3p "$f")
+        printf '%s\n' "$status" | grep -qE '^- \*\*Status:\*\* (Proposed|Accepted|Superseded|Moved|Deprecated) \([0-9]{4}-[0-9]{2}-[0-9]{2}\)$' || echo "STATUS $f"
+        [ "$(wc -l <"$f")" -le 90 ] || echo "LONG $f (over 90 lines)"
         relative_links "$f" | while read -r l; do
             case "$l" in /* | ../../*) echo "LINK $f -> $l (outside the repo)" ;; esac
             [ -f "decisions/$l" ] || echo "LINK $f -> $l"
         done
-        if sed -n 3p "$f" | grep -q 'Superseded'; then
-            by=$(bullet_links "$f" 'Superseded by' | head -1)
-            if [ -z "$by" ]; then
-                echo "SUPERSEDED $f: no Superseded by bullet"
-            elif [ ! -f "decisions/$by" ]; then
-                echo "SUPERSEDED $f -> $by does not exist"
-            fi
-        fi
+        case "$status" in *Moved* | *Deprecated*) ;; *)
+            sed -n 1,8p "$f" | grep -q '^- \*\*Moved to:\*\*' && echo "STATUS $f: a Moved to bullet needs Moved or Deprecated" ;;
+        esac
+        case "$status" in
+        *Superseded* | *Moved* | *Deprecated*)
+            sed -n '2,$p' "$f" | grep -qvE '^(- \*\*[A-Za-z ]+:\*\* .+)?$' && echo "STUB $f: a stub has no body"
+            case "$status" in
+            *Superseded*)
+                by=$(bullet_links "$f" 'Superseded by' | head -1)
+                if [ -z "$by" ]; then
+                    echo "SUPERSEDED $f: no Superseded by link"
+                elif [ ! -f "decisions/$by" ]; then
+                    echo "SUPERSEDED $f -> $by does not exist"
+                fi
+                ;;
+            *)
+                sed -n 1,8p "$f" | grep -qE '^- \*\*(Superseded by|Moved to):\*\* .' ||
+                    echo "STUB $f: no Superseded by or Moved to bullet"
+                ;;
+            esac
+            ;;
+        *)
+            grep -q '^## ' "$f" || echo "SECTION $f: no sections"
+            grep '^## ' "$f" | grep -vxE '## (Context|Decision|Alternatives considered|Consequences|References)' | sed "s|^|SECTION $f: |"
+            ;;
+        esac
         bullet_links "$f" 'Supersedes' | while read -r old; do
             [ -f "decisions/$old" ] || continue
             sed -n 3p "decisions/$old" | grep -q 'Superseded' || echo "SUPERSEDES $f: decisions/$old is not marked Superseded"

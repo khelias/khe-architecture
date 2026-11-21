@@ -13,10 +13,12 @@ which `khe-sites` builds from this repo on every deploy and at least weekly.
 Each file in [`decisions/`](decisions/) is one decision, numbered in the
 order it was made. Line 3 gives its status and date: `Proposed` is still
 open, `Accepted` is in force, `Superseded` points to the ADR that replaced
-it. The sections follow Michael Nygard's format: the context that forced a
-choice, the decision, the alternatives considered and the consequences we
-accepted. An accepted ADR is not rewritten; a changed decision gets a new
-ADR.
+it and `Moved` to the repo whose docs now hold it. The sections follow
+Michael Nygard's format: the context that forced a choice, the decision,
+the alternatives considered and the consequences we accepted. A narrower or
+wider version of a decision edits its ADR in place and moves the date; a
+reversal gets a new ADR, and the old file stays as a short stub that links
+onward, so every old address keeps working.
 
 ## The numbers
 

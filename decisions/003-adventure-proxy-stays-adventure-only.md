@@ -38,7 +38,8 @@ game's benchmark for Estonian output quality, whichever comes first.
 ## Alternatives considered
 
 - (a) **Shared repo:** rejected; one library ties the apps' release cycles
-  together, the same reason as [ADR-002](002-independent-stacks.md).
+  together, which [ADR-014](014-shared-ui-packages.md) allows only for a
+  versioned UI package that each app pins.
 - (c) **No AI outside the game:** not chosen; AI output in the other apps is
   wanted, and (b) allows it without coupling.
 - (d) **Shared model gateway:** deferred to the revisit trigger above. A

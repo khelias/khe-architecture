@@ -31,9 +31,11 @@ giving way:
 ## Decision
 
 One repo per product. A new product gets a new repo, with its own CI, deploy
-and check, and an entry in the estate's list of repos in `khe-meta`.
-Cross-repo concerns live in `khe-meta`; nothing is shared through a common
-source tree.
+and check, and an entry in the estate's
+[list of repos](https://github.com/khelias/khe-workspace/blob/main/repos/repos.yaml)
+in the workspace repo. Cross-repo concerns live in the cross-repo layer, now
+`khe-architecture` and `khe-meta` ([ADR-012](012-estate-architecture-is-public.md));
+nothing is shared through a common source tree.
 
 Deliberate exceptions:
 
@@ -41,7 +43,7 @@ Deliberate exceptions:
   one repo. They share a build and assets, and are deployed as two
   independent sites.
 - `khe-meta` holds no product; it is the cross-repo layer.
-- The [`khe`](https://github.com/khelias/khe) workspace repo gives an AI
+- The [`khe-workspace`](https://github.com/khelias/khe-workspace) repo gives an AI
   coding agent one root over all repos, with the repos cloned into it. It
   holds no product code: git, CI, deploys and visibility stay per repo.
 
@@ -54,11 +56,11 @@ Deliberate exceptions:
 ## Consequences
 
 - Shared versions and shared code have no natural place, which is what
-  [ADR-002](002-independent-stacks.md) and
+  [ADR-014](014-shared-ui-packages.md) and
   [ADR-003](003-adventure-proxy-stays-adventure-only.md) settle.
 - Conventions are kept per repo: each product repo has its own `AGENTS.md`,
   CI and check, and branch rules are set per repo
-  ([ADR-006](006-branch-protection.md)).
+  ([ADR-023](023-agent-pushes-where-its-session-allows.md)).
 - Cross-repo work costs a commit and a push per repo, which the workspace
   makes cheaper but does not remove.
 - Revisit if two products start sharing enough code that keeping them apart

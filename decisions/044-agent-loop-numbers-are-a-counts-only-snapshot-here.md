@@ -1,6 +1,6 @@
 # ADR-044: The agent loop's numbers are published from a counts-only snapshot in khe-architecture
 
-- **Status:** Accepted (2026-11-19)
+- **Status:** Accepted (2026-11-21)
 - **Related:** [ADR-012](012-estate-architecture-is-public.md) (what this repo holds), [ADR-007](007-automated-writers.md) (the writer), [ADR-035](035-family-shell-and-design-check-with-its-exceptions.md) (the page that shows them)
 
 ## Context
@@ -25,29 +25,26 @@ which has every repo checked out and GitHub access.
 
 ## Decision
 
-1. **The numbers live in khe-architecture, as `metrics/agent-loop.json`.**
-   khe-sites reads the file at build through the same checkout of this repo
-   it reads the decisions from, and a deploy publishes the current file.
-2. **The file holds counts only.** It has exactly these keys: `since` and
-   `until` (dates); `plans`; `planReview`, `planCheck`, `codeReview` and
-   `securityReview`, each with `acted`, `dropped`, `notRun` and `pending`;
-   one key for the owner's own review, with `acted`, `notRun` and
-   `pending`; `push` with
-   `unchanged`, `changed`, `discarded` and `pending`; `pushedPlans` and
-   `revertedPlans`; and `planToPush` with `count` and `medianMinutes`. Every
-   value but the two dates is a whole number. No plan name, commit, commit
-   subject or path goes in it.
+1. **The numbers live in khe-architecture, as one generated file.**
+   khe-sites reads it at build through the same checkout of this repo it
+   reads the decisions from, and a deploy publishes the current file.
+2. **The file holds counts only**: per check what was acted on, dropped,
+   not run and pending, the push outcomes, the plans pushed and reverted,
+   and the time from plan to push. Every value but the period's two dates
+   is a whole number; no plan name, commit, commit subject or path goes in
+   it. The key set is fixed and listed beside the
+   [script that writes it](https://github.com/khelias/khe-workspace/blob/main/scripts/agent-metrics.sh).
 3. **The retro writes it.** After a task's last commit, the workspace agent
-   runs the script with `--json` into this repo's main checkout. When a count
-   changed it runs this repo's check and pushes one commit with the fixed
-   message "agent-loop numbers". The writer is the attended agent already in
-   the writer register; it gains this push, and no new writer is added.
+   runs the script into this repo's main checkout. When a count changed it
+   runs this repo's check and pushes one commit with a fixed message. The
+   writer is the attended agent already in the writer register; it gains
+   this push, and no new writer is added.
 4. **The commit carries the review skip.** The workspace commit gate counts
    a JSON file as code and asks for a review; there is nothing to review in
    generated counts, so the commit names the skip, and the retro reports it.
 5. **A bad file is caught twice.** khe-sites fails its build and deploy on a
    missing key, an unknown key or a count that is not a whole number, so the
-   live page keeps its last good numbers. To keep that from blocking an
+   live page keeps its last good numbers. So that this does not block an
    unrelated deploy, this repo's check holds the file to the same key set in
    CI, and the retro runs it before the push.
 

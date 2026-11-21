@@ -52,7 +52,7 @@ recorded there as an open item until it has one.
   inside an automation that nobody reviews.
 - **No writer acts alone.** Safe, but it would put a person in front of
   every dependency update and every deploy, which the working loop of
-  [ADR-006](006-branch-protection.md) deliberately avoids.
+  [ADR-023](023-agent-pushes-where-its-session-allows.md) deliberately avoids.
 
 ## Consequences
 

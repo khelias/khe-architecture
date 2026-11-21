@@ -1,16 +1,15 @@
 # ADR-029: Family stories are published with the children's names
 
 - **Status:** Accepted (2026-11-16)
-- **Related:** [ADR-012](012-estate-architecture-is-public.md), [ADR-016](016-static-fallback-at-the-edge.md), [ADR-028](028-the-stories-room-keeps-its-own-look.md), [ADR-031](031-stories-public-app-private-stories-audio-outside-git.md) (replaces point 4 for stories published from now on)
+- **Related:** [ADR-012](012-estate-architecture-is-public.md), [ADR-016](016-static-fallback-at-the-edge.md), [ADR-031](031-stories-public-app-private-stories-audio-outside-git.md) (replaces point 4 for stories published from now on)
 
 ## Context
 
-The family's bedtime stories live in the private
-[khe-bunny-tales](https://github.com/khelias/khe-bunny-tales). The stories
-room in [khe-sites](https://github.com/khelias/khe-sites) was built to show
-one of them, read aloud, with the children's names changed. The children
-asked to hear their own names, and on 2026-11-15 both parents agreed. The
-same day a second story was chosen for the room: the first one ever told, a
+The family's bedtime stories live in the private khe-bunny-tales. The
+stories room in [khe-sites](https://github.com/khelias/khe-sites) was
+built to show one of them, read aloud, with the children's names
+changed. The children asked to hear their own names, and on 2026-11-15
+both parents agreed. The same day a second story was chosen for the room: the first one ever told, a
 real-life story of an ordinary summer day, which the children like most.
 
 Publishing a story is hard to undo. khe-sites is a public repository, so a
