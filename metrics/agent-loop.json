@@ -1,46 +1,46 @@
 {
   "since": "2026-10-22",
-  "until": "2026-11-20",
-  "plans": 63,
+  "until": "2026-11-21",
+  "plans": 64,
   "planReview": {
-    "acted": 824,
+    "acted": 840,
     "dropped": 24,
     "notRun": 0,
     "pending": 0
   },
   "planCheck": {
-    "acted": 148,
+    "acted": 153,
     "dropped": 0,
     "notRun": 9,
     "pending": 0
   },
   "codeReview": {
-    "acted": 339,
-    "dropped": 207,
+    "acted": 346,
+    "dropped": 208,
     "notRun": 3,
     "pending": 0
   },
   "securityReview": {
     "acted": 31,
     "dropped": 1,
-    "notRun": 47,
+    "notRun": 48,
     "pending": 0
   },
   "operator": {
     "acted": 6,
-    "notRun": 45,
+    "notRun": 46,
     "pending": 5
   },
   "push": {
-    "unchanged": 57,
+    "unchanged": 58,
     "changed": 0,
     "discarded": 0,
     "pending": 5
   },
-  "pushedPlans": 61,
+  "pushedPlans": 62,
   "revertedPlans": 0,
   "planToPush": {
-    "count": 56,
-    "medianMinutes": 64
+    "count": 58,
+    "medianMinutes": 69
   }
 }
