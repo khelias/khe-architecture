@@ -36,7 +36,7 @@ are in khe-homelab's
    findings that have a fix. Trivy, the default candidate, had its release
    channels compromised twice in March 2026 (GHSA-69fq-xp46-6x23), and a
    scanner is where a supply-chain compromise pays off. Scanner updates are
-   never automerged and wait a week.
+   never automerged and wait out a release age.
 7. **The only way past a finding that cannot be fixed yet is a dated ignore
    rule,** which fails the scan once its date has passed.
 8. **Runtime stages carry no package manager,** so the gate does not trip

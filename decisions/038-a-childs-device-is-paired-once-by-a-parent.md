@@ -34,8 +34,8 @@ own (Authentik) waits on a RAM upgrade of the homelab host.
    configuration, and can be changed. Pairing names whose device it is.
    Pairing attempts are rate limited per address.
 3. **The device credential** is 256 random bits, stored only as a hash,
-   sent as an `HttpOnly; Secure; SameSite=Strict` cookie and revocable per
-   device. The device maps to a row in the app's own store, so who may do
+   sent in a cookie that page scripts cannot read and the browser sends
+   only to the app's own site, and revocable per device. The device maps to a row in the app's own store, so who may do
    what stays the app's job (ADR-004 point 4).
 4. **ADR-022 point 4 is amended.** A backend may keep its app's home route
    when every write needs a paired-device credential and the backend reads

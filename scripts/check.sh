@@ -18,7 +18,9 @@ bullet_links() {
 
 # metrics/agent-loop.json, written by the retro (ADR-044): exactly the keys
 # khe-sites reads, in the order khe-workspace scripts/agent-metrics.sh --json
-# writes them (listed in a comment there), and whole counts.
+# writes them (listed in a comment there): since, until, plans, planReview,
+# planCheck, codeReview, securityReview, operator, push, pushedPlans,
+# revertedPlans, planToPush; whole counts.
 # The whole file, whitespace removed, has to match one pattern.
 metrics() {
     f=metrics/agent-loop.json
