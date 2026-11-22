@@ -24,7 +24,8 @@ each commit.
 
 Automated writers
 ([estate ADR-007](decisions/007-automated-writers.md)): Renovate automerges
-GitHub Actions minor and patch updates, digests and pins (`renovate.json`).
+GitHub Actions minor and patch updates, digests and pins (`renovate.json`)
+once a release is three days old.
 The workspace agent's retro pushes `metrics/agent-loop.json` to `main` with
 the fixed message "agent-loop numbers" when a count changed (khe-workspace
 `scripts/agent-metrics.sh --json`); its review skip is the one ADR-044
