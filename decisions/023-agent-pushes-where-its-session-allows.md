@@ -1,21 +1,21 @@
 # ADR-023: The agent pushes and merges its own work where its session allows
 
-- **Status:** Accepted (2026-11-21)
+- **Status:** Accepted (2026-11-23)
 - **Supersedes:** [ADR-020](020-agent-work-through-pull-requests.md)
-- **Related:** [ADR-007](007-automated-writers.md), [ADR-008](008-container-images.md), [ADR-014](014-shared-ui-packages.md)
+- **Related:** [ADR-007](007-automated-writers.md), [ADR-008](008-container-images.md), [ADR-014](014-shared-ui-packages.md), [ADR-027](027-attended-and-unattended-agent-tiers.md)
 
 ## Context
 
 - `khelias` is a personal GitHub account on the Free plan with one
   collaborator, its owner, as admin. Rulesets, required checks and
   auto-merge exist only for its public repos.
-- Before this, the AI coding agent committed locally and a person pushed,
-  opened the pull request and turned on auto-merge, because the agent's
-  session could not push. The person's part had become one copy-pasted
-  block per change, run without reading it: the look it was meant to give
-  had stopped happening, and every change waited for it.
+- Before this, the agent committed and a person pushed, because its session
+  could not. That became one copy-pasted block per change, run unread: the
+  look it was meant to give had stopped, and every change waited for it.
 - The agent now also runs in a session that may push, use `gh` and reach
   the homelab VM over ssh, without the other session's guardrails.
+- The agent runs in more than one harness: Claude Code, and on the laptop
+  also Antigravity, whose hooks call the same gate through an adapter.
 - The workspace commit gate loads in every session from the shared project
   settings and already runs each repo's check, the personal-data scan and
   the review requirement, so it is where an envelope for the agent's pushes
@@ -48,7 +48,10 @@
    in khe-homelab's
    [runbook](https://github.com/khelias/khe-homelab/blob/main/docs/runbook.md);
    host changes still go through git. The way back is a revert commit
-   pushed the same way.
+   pushed the same way. On the laptop the agent may be Claude Code or
+   Antigravity, each committing and pushing only through the workspace
+   gate; a harness that cannot load the gate does not commit or push in
+   the estate. On the homelab's agent VM it stays Claude Code (ADR-027).
 4. **Private repos stay without branch rules.** What protects them is access
    (one collaborator) and backup. GitHub Pro is not bought for this.
 5. **Every repo with a self-hosted runner requires approval of fork PR runs
@@ -62,8 +65,7 @@ push; in one that may not, it still Proposes.
 ## Alternatives considered
 
 - **Keep the person's push, or wait for a month of delivery data first.**
-  The look before the push had already stopped being a look; the
-  after-the-fact measures (fixes and reverts) still apply.
+  The look before the push had already stopped being a look.
 - **Rely on the session's permission rules alone.** Those live per machine
   and per instance; the gate is shared, versioned and runs in every session.
 - **Required review, or checks that bind admins.** Protect against nobody
@@ -71,18 +73,16 @@ push; in one that may not, it still Proposes.
 
 ## Consequences
 
-- A change can reach `main` and deploy with no person in the loop. What
-  stands in front of it is the gate and, on the pull request route, CI on
-  the branch. A fix is a new commit, never a rewrite.
+- A change can reach `main` and deploy with no person in the loop, behind
+  the gate and, on the pull request route, CI. A fix is a new commit.
 - The CI scan runs after the branch is public, so it guards `main` and the
   deploy, not exposure; the local gate stays the guard against publishing
   personal data at all.
 - A pull request can edit its own workflow to weaken the required job,
   which is why a workflow diff stays with a person.
 - The gate matches the command line: a push inside a script or an alias is
-  not seen. Branch rules (point 1) still stop a force push, and point 2's
-  bypass is reported. The rules in CI lag the local ones until a repo moves
-  its pin of the scan.
+  not seen; branch rules (point 1) still stop a force push. CI's rules lag
+  the local ones until a repo moves its pin of the scan.
 - A force push or a branch deletion needs a settings change first.
 - The account is the single point of failure: whoever holds it can run code
   on the home network through any runner. It has two-factor authentication.
