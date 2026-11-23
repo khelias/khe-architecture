@@ -65,8 +65,8 @@ build, and a product opened directly.
     its night theme. The public build keeps the family's, setting their
     custom properties over its sky. The language switch lives only in the
     header, the credit only in the footer.
-13. **The study and adventure rooms' content keeps its own look,** set in
-    each repo's design docs; the chrome around it follows point 1.
+13. **In the study and adventure rooms everything below the header is
+    content and keeps its own look,** set in each repo's design docs.
 
 ## Alternatives considered
 
@@ -84,7 +84,7 @@ build, and a product opened directly.
 - The check reads source, not rendering, so a centred hero stays for review,
   as does `khe-home-assistant`, which has no npm project.
 - Excepted rooms can drift from the family and honour reduced transparency
-  and motion. A browser without a referrer gets the product view; one
-  without the Popover API gets the mark and no menu.
+  and motion. Without a referrer a browser gets the product view, without
+  the Popover API the mark and no menu.
 - Revisit when a room needs its own menu links, the rooms outgrow a list, or
   two rooms need the same state colours (then shared tokens).
