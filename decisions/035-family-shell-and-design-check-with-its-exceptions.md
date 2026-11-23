@@ -1,6 +1,6 @@
 # ADR-035: The family covers the application shell, a design check enforces it, and named rooms keep their own look
 
-- **Status:** Accepted (2026-11-21)
+- **Status:** Accepted (2026-11-23)
 - **Supersedes:** [ADR-021](021-family-shell-and-design-check.md), [ADR-025](025-the-house-dashboard-keeps-its-own-look.md), [ADR-028](028-the-stories-room-keeps-its-own-look.md), [ADR-030](030-the-portfolio-frame-and-the-product-view.md), [ADR-032](032-unejanku-owns-its-header-and-footer.md)
 - **Related:** [ADR-014](014-shared-ui-packages.md), [ADR-031](031-stories-public-app-private-stories-audio-outside-git.md)
 
@@ -9,19 +9,20 @@
 The shared chrome reads as one family, but the rooms behind it read as
 generated (gradients, shadows, large radii, default colours, emoji), and a
 rule in a document is skipped by the next agent, so it needs a check. A few
-rooms are better outside it: the house dashboard and the stories room, whose
-designs in the family values were plain or generic, Unejänku's children's
-build, and a product opened directly, whose user needs no portfolio header.
+rooms are better outside it: the house dashboard, the stories room and the
+two games, plain or generic in the family values, Unejänku's children's
+build, and a product opened directly.
 
 ## Decision
 
-1. **Every room's shell uses the family values and rules:** the ground,
-   type, surfaces, controls, dialogs, notifications, menus and lists around
-   its content, and the shared chrome. Each room has one accent, in the
-   mark's `.ee` and as its dot in the rooms list. Play areas, canvases,
-   maps and the house drawing keep their own look within the check's
-   ratchet (point 8); state colour is meaning, not an accent. Points 9 to
-   12 name the exceptions.
+1. **The shared chrome, the khe.ee pages (the games hub and the house
+   demo's frame included) and every room's shell use the family values and
+   rules:** a room's ground, type, surfaces, controls, dialogs,
+   notifications, menus and lists around its content. Each room has one
+   accent, in the mark's `.ee` and as its rooms-list dot. Play areas,
+   canvases, maps and the house drawing keep their own look within the
+   check's ratchet (point 8); state colour is meaning, not an accent.
+   Points 9 to 13 name the exceptions.
 2. **Every room has a light and a dark theme following the system
    setting.** A room may commit its content to one theme, which its header
    then takes, marked on `<html data-theme>`, and may offer an override.
@@ -44,22 +45,19 @@ build, and a product opened directly, whose user needs no portfolio header.
    presentation under ADR-014 point 2. Every web app lints with it against
    a committed baseline that only shrinks; a line may opt out with a reason
    ([khe-ui `AGENTS.md`](https://github.com/khelias/khe-ui/blob/main/AGENTS.md)).
-9. **Home Assistant's dashboard keeps its own look,** an application in
-   the House room like the house drawing, with glass, blur, gradients and
-   its own controls. The khe.ee pages and the house demo's header around it
-   follow point 1, as a family header around the dashboard itself would.
+   An excepted room's `AGENTS.md` says what of it the check reads.
+9. **Home Assistant's dashboard keeps its own look** (glass, blur, gradients,
+   its own controls); the house demo's frame around it follows point 1.
 10. **The stories room's content keeps its own look** on both builds
     ([ADR-031](031-stories-public-app-private-stories-audio-outside-git.md)):
-    system type, a reading serif, large radii, translucent materials, and
-    no design check.
+    system type, a reading serif, large radii, translucent materials, no check.
 11. **A product page has two views.** The KHE header is the portfolio
     frame, always on khe.ee pages, the games hub and the demos. A product
-    page shows it for a visit that came from a frame page; otherwise, and
-    always when installed, it shows the product view: its own title, theme
-    toggle and language switcher, and a khe.ee link in the footer. The
-    shared package decides before first paint, as presentation. A demo's
-    frame has a neutral line on what it shows and keeps private, with a link
-    on for the family
+    page shows it for a visit from a frame page; otherwise, and always when
+    installed, the product view: its own title, theme toggle and language
+    switcher, and a khe.ee link in the footer, decided by the shared
+    package before first paint. A demo's frame has a neutral line on what
+    it shows and keeps private, with a link on for the family
     ([khe-ui ADR-006](https://github.com/khelias/khe-ui/blob/main/docs/adr/006-the-demo-line-links-the-real-site.md)).
 12. **Unejänku's family build draws its own header and footer** (its mark,
     name and language switch; the voice credit, privacy notice and a khe.ee
@@ -67,6 +65,8 @@ build, and a product opened directly, whose user needs no portfolio header.
     its night theme. The public build keeps the family's, setting their
     custom properties over its sky. The language switch lives only in the
     header, the credit only in the footer.
+13. **The study and adventure rooms' content keeps its own look,** set in
+    each repo's design docs; the chrome around it follows point 1.
 
 ## Alternatives considered
 
@@ -83,8 +83,8 @@ build, and a product opened directly, whose user needs no portfolio header.
   bump, which may raise a baseline; it does not reach Unejänku's family build.
 - The check reads source, not rendering, so a centred hero stays for review,
   as does `khe-home-assistant`, which has no npm project.
-- Excepted rooms can drift from the family, and honour reduced transparency
-  and motion. A browser without a referrer gets the product view, the safe
-  side; one without the Popover API gets the mark and no menu.
+- Excepted rooms can drift from the family and honour reduced transparency
+  and motion. A browser without a referrer gets the product view; one
+  without the Popover API gets the mark and no menu.
 - Revisit when a room needs its own menu links, the rooms outgrow a list, or
   two rooms need the same state colours (then shared tokens).
