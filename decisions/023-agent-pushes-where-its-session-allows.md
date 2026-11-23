@@ -43,7 +43,7 @@
    cannot be undone, secrets, destructive commands) are in the
    [workspace `AGENTS.md`](https://github.com/khelias/khe-workspace/blob/main/AGENTS.md);
    the gate's push refusals, the envelope this decision relies on, are in
-   its [`CLAUDE.md`](https://github.com/khelias/khe-workspace/blob/main/CLAUDE.md).
+   its [`AGENTS.md`](https://github.com/khelias/khe-workspace/blob/main/AGENTS.md#workspace-hooks).
    On the homelab VM the agent runs read-only diagnosis and the procedures
    in khe-homelab's
    [runbook](https://github.com/khelias/khe-homelab/blob/main/docs/runbook.md);
