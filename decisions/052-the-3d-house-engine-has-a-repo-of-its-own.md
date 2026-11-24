@@ -30,11 +30,13 @@ ran on every change to the dashboard.
    khe.ee/ha demo is built on, so a demo that needs a new test device takes
    an engine commit and a new copy.
 3. **A consumer carries a vendored copy pinned to a commit,** at the same
-   paths as in khe-house3d, written by a script and checked against a
-   committed list of file hashes on every check, so a hand edit of the copy
-   cannot be committed. khe-home-assistant does this for its card and its
-   demo, so the served paths, the deploy and khe-sites' demo build stay as
-   they were, and one revert there undoes an engine bump.
+   paths as in khe-house3d, written by khe-house3d's copy script, which
+   travels in the copy, and checked against a committed list of file hashes
+   on every check, so a hand edit of the copy cannot be committed (amended
+   2026-11-24). khe-home-assistant does this for its card and its demo, so
+   the served paths, the deploy and khe-sites' demo build stay as they were,
+   and one revert there undoes an engine bump. khe-makett, a private side
+   project that deploys nothing, is the second consumer.
 4. **khe-house3d deploys nothing.** It has no runner, no secrets and no
    image; its CI runs its check on a GitHub-hosted runner.
 5. **It holds only made-up houses.** A real house's model, devices and look

@@ -1,6 +1,6 @@
 # ADR-035: The family covers the application shell, a design check enforces it, and named rooms keep their own look
 
-- **Status:** Accepted (2026-11-23)
+- **Status:** Accepted (2026-11-24)
 - **Supersedes:** [ADR-021](021-family-shell-and-design-check.md), [ADR-025](025-the-house-dashboard-keeps-its-own-look.md), [ADR-028](028-the-stories-room-keeps-its-own-look.md), [ADR-030](030-the-portfolio-frame-and-the-product-view.md), [ADR-032](032-unejanku-owns-its-header-and-footer.md)
 - **Related:** [ADR-014](014-shared-ui-packages.md), [ADR-031](031-stories-public-app-private-stories-audio-outside-git.md)
 
@@ -8,10 +8,9 @@
 
 The shared chrome reads as one family, but the rooms behind it read as
 generated (gradients, shadows, large radii, default colours, emoji), and a
-rule in a document is skipped by the next agent, so it needs a check. A few
-rooms are better outside it: the house dashboard, the stories room and the
-two games, plain or generic in the family values, Unejänku's children's
-build, and a product opened directly.
+rule in a document is skipped by the next agent, so it needs a check. Some
+are better outside it: the house dashboard, the stories room, the two games,
+Unejänku's children's build, a product opened directly, a side business.
 
 ## Decision
 
@@ -22,7 +21,7 @@ build, and a product opened directly.
    accent, in the mark's `.ee` and as its rooms-list dot. Play areas,
    canvases, maps and the house drawing keep their own look within the
    check's ratchet (point 8); state colour is meaning, not an accent.
-   Points 9 to 13 name the exceptions.
+   Points 9 to 14 name the exceptions.
 2. **Every room has a light and a dark theme following the system
    setting.** A room may commit its content to one theme, which its header
    then takes, marked on `<html data-theme>`, and may offer an override.
@@ -67,12 +66,13 @@ build, and a product opened directly.
     header, the credit only in the footer.
 13. **In the study and adventure rooms everything below the header is
     content and keeps its own look,** set in each repo's design docs.
+14. **khe-makett's side business is not a room:** no header, own look, no check.
 
 ## Alternatives considered
 
 - **A stricter `DESIGN.md`, a gate script or Stylelint:** agents skip
-  documents, no CI runs a gate script, and Stylelint adds dependencies and
-  has no rule for emoji or dashes.
+  documents, no CI runs a gate script, Stylelint adds dependencies and has no
+  rule for emoji or dashes.
 - **Fix every room at once:** the ratchet stops them getting worse instead.
 - **Always hide the header on products, or a parameter on frame links:** a
   visitor loses the way between rooms, or a copied link opens the frame.
