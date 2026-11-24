@@ -1,9 +1,9 @@
 {
   "since": "2026-10-22",
   "until": "2026-11-24",
-  "plans": 74,
+  "plans": 75,
   "planReview": {
-    "acted": 937,
+    "acted": 947,
     "dropped": 26,
     "notRun": 0,
     "pending": 0
@@ -15,7 +15,7 @@
     "pending": 0
   },
   "codeReview": {
-    "acted": 386,
+    "acted": 389,
     "dropped": 226,
     "notRun": 4,
     "pending": 0
@@ -23,24 +23,24 @@
   "securityReview": {
     "acted": 32,
     "dropped": 1,
-    "notRun": 57,
+    "notRun": 58,
     "pending": 0
   },
   "operator": {
     "acted": 6,
-    "notRun": 53,
+    "notRun": 54,
     "pending": 6
   },
   "push": {
-    "unchanged": 68,
+    "unchanged": 69,
     "changed": 0,
     "discarded": 0,
     "pending": 5
   },
-  "pushedPlans": 71,
+  "pushedPlans": 72,
   "revertedPlans": 0,
   "planToPush": {
-    "count": 67,
-    "medianMinutes": 56
+    "count": 68,
+    "medianMinutes": 55
   }
 }
