@@ -26,6 +26,7 @@ about which repo owns what, start here.
 | [khe-deals-watches](https://github.com/khelias/khe-deals-watches) | private | The family's saved searches for khe-deals with their price and feedback lines, written by the bot after its owner confirms; data with no CI of its own, checked by khe-deals' validator. | GitHub only - not deployed |
 | [khe-workshop](https://github.com/khelias/khe-workshop) | public | The household's 3D-printable parts as OpenSCAD source with checks that prove them, and the code of Töökoda, the room that shows each part and its real print ([ADR-043](decisions/043-household-parts-are-public-source-built-into-khe-sites.md)). | [khe.ee/workshop](https://khe.ee/workshop/) - built into khe-sites from a checkout of this repo |
 | [khe-makett](https://github.com/khelias/khe-makett) | private | A side project: a 3D-printed scale model of a house made from its building drawings, with a sales site mockup, a gift page and the reports on whether to sell it; it carries a pinned copy of khe-house3d ([ADR-052](decisions/052-the-3d-house-engine-has-a-repo-of-its-own.md)) and keeps its own look ([ADR-035](decisions/035-family-shell-and-design-check-with-its-exceptions.md) point 14). | The operator's laptop - local, not deployed |
+| [khe-kavand](https://github.com/khelias/khe-kavand) | private | A side project: buildings described in code, each type a script that writes an IFC model, with the plan, section, elevation and a sheet with an Estonian title block cut from it by Bonsai in headless Blender; started as a demo for a construction engineer. | The operator's laptop - local, not deployed; the demo page is a shared claude.ai artifact |
 
 ## Foundations
 
@@ -78,4 +79,4 @@ the source of truth is in that repo:
 - [khe-homelab/ROADMAP.md](https://github.com/khelias/khe-homelab/blob/main/ROADMAP.md) - offsite backup, DR, hardware, service wishlist
 - [khe-home-assistant/ROADMAP.md](https://github.com/khelias/khe-home-assistant/blob/main/ROADMAP.md) - house automation phases, the self-running house
 - [khe-trips/ROADMAP.md](https://github.com/khelias/khe-trips/blob/main/ROADMAP.md) - scope decision, trip sharing, backend and co-editing, template publication
-- khe-workspace, khe-sites, khe-ui, khelias, ha-estfeed, khe-albums, khe-bunny-tales, khe-stories, khe-deals, khe-deals-watches, khe-workshop, khe-house3d, khe-makett - no standalone ROADMAP.md (covered inline or in the private khe-meta roadmap)
+- khe-workspace, khe-sites, khe-ui, khelias, ha-estfeed, khe-albums, khe-bunny-tales, khe-stories, khe-deals, khe-deals-watches, khe-workshop, khe-house3d, khe-makett, khe-kavand - no standalone ROADMAP.md (covered inline or in the private khe-meta roadmap)
