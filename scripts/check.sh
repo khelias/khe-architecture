@@ -16,7 +16,7 @@ bullet_links() {
     sed -n "1,8p" "$1" | grep -E "^- \*\*$2:\*\*" | grep -oE '\]\([^)#]+' | sed 's/^](//'
 }
 
-# metrics/agent-loop.json, written by the retro (ADR-044): exactly the keys
+# metrics/agent-loop.json, written by the weekly refresh (ADR-044): exactly the keys
 # khe-sites reads, in the order khe-workspace scripts/agent-metrics.sh --json
 # writes them (listed in a comment there): since, until, plans, planReview,
 # planCheck, codeReview, securityReview, operator, push, pushedPlans,

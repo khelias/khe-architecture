@@ -24,7 +24,7 @@ onward, so every old address keeps working.
 
 [`metrics/agent-loop.json`](metrics/agent-loop.json) holds the counts behind
 [khe.ee/agents](https://khe.ee/agents/): what each check of the agent loop
-found and how its pushes went, refreshed when a task closes.
+found and how its pushes went, refreshed once a week.
 
 ## The estate
 

@@ -26,11 +26,12 @@ Automated writers
 ([estate ADR-007](decisions/007-automated-writers.md)): Renovate automerges
 GitHub Actions minor and patch updates, digests and pins (`renovate.json`)
 once a release is three days old.
-The workspace agent's retro pushes `metrics/agent-loop.json` to `main` with
-the fixed message "agent-loop numbers" when a count changed (khe-workspace
-`scripts/agent-metrics.sh --json`); its review skip is the one ADR-044
-point 4 names. Nothing here deploys; `khe-sites` builds the architecture page from this
-repo at its next deploy. The way back from a bad automerge is to revert its
+The workspace agent's weekly refresh (khe-workspace's `agent-metrics` skill)
+pushes `metrics/agent-loop.json` to `main` with the fixed message
+"agent-loop numbers" when a count changed (`scripts/agent-metrics.sh
+--json`); its review skip is the one ADR-044 point 4 names. Nothing here
+deploys; `khe-sites` builds the architecture page from this repo at its next
+deploy. The way back from a bad automerge is to revert its
 commit on `main` and push.
 
 ## Rules
