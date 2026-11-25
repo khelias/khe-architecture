@@ -1,7 +1,7 @@
 # ADR-004: App backend and identity for the estate
 
-- **Status:** Accepted (2026-11-21)
-- **Related:** [ADR-008](008-container-images.md), [ADR-022](022-home-route-for-access-only-apps.md), [ADR-037](037-childrens-stories-are-made-by-an-unattended-job.md) (points 2, 5 and 6 do not apply to its stories), [ADR-038](038-a-childs-device-is-paired-once-by-a-parent.md) (extends point 3: a child's paired device)
+- **Status:** Accepted (2026-11-25)
+- **Related:** [ADR-008](008-container-images.md), [ADR-010](010-one-host-docker-compose.md) (its edge exception, point 7), [ADR-022](022-home-route-for-access-only-apps.md), [ADR-037](037-childrens-stories-are-made-by-an-unattended-job.md) (points 2, 5 and 6 do not apply to its stories), [ADR-038](038-a-childs-device-is-paired-once-by-a-parent.md) (extends point 3: a child's paired device)
 
 ## Context
 
@@ -58,7 +58,10 @@ trips, a thin sync layer beside a TypeScript game engine for study.
    the language that fits it and records the choice in its own docs. What
    stays shared, so a second backend is not a second platform: the
    container platform of [ADR-008](008-container-images.md), the JWT
-   contract of point 3, and OpenAPI as the API contract.
+   contract of point 3, and OpenAPI as the API contract. The sales site in
+   ADR-010's exception runs as a Cloudflare Worker, not on the container
+   platform, and keeps no database of its own; point 6 applies to it when
+   it deploys.
 
 ## Alternatives considered
 

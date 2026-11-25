@@ -1,6 +1,6 @@
 # ADR-010: One host, one Docker VM, every service a Compose stack
 
-- **Status:** Accepted (2026-04-13)
+- **Status:** Accepted (2026-11-25)
 - **Related:** [ADR-008](008-container-images.md), [ADR-016](016-static-fallback-at-the-edge.md), [ADR-022](022-home-route-for-access-only-apps.md)
 
 ## Context
@@ -8,11 +8,13 @@
 The estate runs on hardware at home: one physical machine, for a family of
 a few active users, operated by one person in spare time. Everything the
 estate serves runs there: the family services, the static sites and the
-estate's own apps.
+estate's own apps. The one exception is a private side project's sales site,
+which takes payments and customer addresses, and whose link is printed on
+the product it sells.
 
-The date above is when this setup was in place by, with the first commit of
+The setup was in place by 2026-04-13, the first commit of
 [`khe-homelab`](https://github.com/khelias/khe-homelab); it was not recorded
-as a decision on a given day. The question it answers came back once the
+as a decision on a given day. The exception was added on 2026-11-25. The question it answers came back once the
 estate started building its own container images
 ([ADR-008](008-container-images.md)) and two app backends were planned: is
 it time for Kubernetes?
@@ -23,6 +25,14 @@ One Proxmox host runs one Docker VM, and every service is a Docker Compose
 stack in `khe-homelab`, deployed from git by a push to `main`. Kubernetes is
 not adopted, neither for the family services nor, for now, for the estate's
 own apps.
+
+**Exception:** the sales site of a private side project runs on
+Cloudflare Workers, one Worker with static assets, and not on the homelab. Payments and
+customer addresses stay off the home server, and a printed link must not
+depend on the home connection. [ADR-016](016-static-fallback-at-the-edge.md)
+rejects edge-primary hosting for the estate's own sites; this site is not one
+of them, and nothing else moves to the edge with it. The site's repo records
+the design in its own decision.
 
 The tool choices that follow from this, such as Proxmox over other
 hypervisors, are compared in `khe-homelab`'s
