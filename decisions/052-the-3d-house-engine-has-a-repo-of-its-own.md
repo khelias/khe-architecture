@@ -25,10 +25,12 @@ ran on every change to the dashboard.
    engine, the model format and its validator, the viewer build with its
    privacy scan, the placement and surroundings tools, and the engine's
    tests. This supersedes khe-home-assistant ADR-001 point 5.
-2. **The made-up test houses live with it.** The engine's tests and
-   baselines run on them. The main test house also carries the devices the
-   khe.ee/ha demo is built on, so a demo that needs a new test device takes
-   an engine commit and a new copy.
+2. **The made-up houses live with it.** The engine's tests and baselines
+   run on the test houses. The khe.ee/ha demo shows a made-up demo house of
+   its own, drawn to look good rather than to test the engine, with the main
+   test house's device ids, so the card's tests and the demo read the same
+   devices (amended 2026-11-26); a demo that needs a new device takes an
+   engine commit in both houses and a new copy.
 3. **A consumer carries a vendored copy pinned to a commit,** at the same
    paths as in khe-house3d, written by khe-house3d's copy script, which
    travels in the copy, and checked against a committed list of file hashes
