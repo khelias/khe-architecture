@@ -39,7 +39,13 @@ ran on every change to the dashboard.
    the served paths, the deploy and khe-sites' demo build stay as they were,
    and one revert there undoes an engine bump. khe-makett, a private side
    project that deploys only a private preview of its sales site, is the
-   second consumer (amended 2026-11-26).
+   second consumer (amended 2026-11-26). A consumer's copy may leave out
+   parts of an included folder it does not want, such as the engine's
+   textures. A consumer may run a scheduled workflow of its own that pins
+   khe-house3d's latest commit, writes the copy, runs the consumer's whole
+   check and, only when it passes, opens a pull request; we merge it by
+   hand, and the merge deploys as a hand bump would. It is an automated
+   writer under [ADR-007](007-automated-writers.md) and proposes only.
 4. **khe-house3d deploys nothing.** It has no runner, no secrets and no
    image; its CI runs its check on a GitHub-hosted runner.
 5. **It holds only made-up houses.** A real house's model, devices and look
