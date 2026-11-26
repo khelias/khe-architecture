@@ -80,6 +80,7 @@ commit on `main` and push.
    GitHub link in Markdown docs, so a later move needs no sweep.
 7. **A repo joining or leaving the estate** updates `ESTATE.md` here in the
    same change, and `repos/repos.yaml` in the `khe-workspace` repo; only
-   `khelias` and `khelias/.github`, which are never cloned, stay out of it.
+   khe-workspace itself, `khelias` and `khelias/.github`, which are not
+   cloned into `repos/`, stay out of it.
 
 All content in English.
