@@ -79,6 +79,7 @@ commit on `main` and push.
 6. **Citations.** Other repos cite an ADR here as "estate ADR-NNN", with a
    GitHub link in Markdown docs, so a later move needs no sweep.
 7. **A repo joining or leaving the estate** updates `ESTATE.md` here in the
-   same change, and `repos/repos.yaml` in the `khe-workspace` repo.
+   same change, and `repos/repos.yaml` in the `khe-workspace` repo; only
+   `khelias` and `khelias/.github`, which are never cloned, stay out of it.
 
 All content in English.
