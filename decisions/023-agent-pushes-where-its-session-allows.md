@@ -1,6 +1,6 @@
 # ADR-023: The agent pushes and merges its own work where its session allows
 
-- **Status:** Accepted (2026-11-23)
+- **Status:** Accepted (2026-11-26)
 - **Supersedes:** [ADR-020](020-agent-work-through-pull-requests.md)
 - **Related:** [ADR-007](007-automated-writers.md), [ADR-008](008-container-images.md), [ADR-014](014-shared-ui-packages.md), [ADR-027](027-attended-and-unattended-agent-tiers.md)
 
@@ -30,8 +30,9 @@
    default branch**, with no bypass. The settings are in
    [`ESTATE.md` "Adding a repo"](https://github.com/khelias/khe-architecture/blob/main/ESTATE.md#adding-a-repo).
 2. **A repo whose push to `main` deploys also requires its CI check.**
-   Admins are not bound by it, deliberately: a person's direct push stays
-   possible for an emergency, and GitHub reports the bypassed rule.
+   Admins are not bound by it, so an emergency push stays possible and
+   GitHub reports it. A private repo (point 4) deploys only from a job that
+   `needs:` its full check, as makett.khe.ee does (amended 2026-11-26).
 3. **The agent pushes, opens pull requests and turns on auto-merge itself
    where its session allows it; where it does not, it hands the same
    commands to a person.** A public repo on the pull request route takes
@@ -59,8 +60,7 @@
    reading its workflow diff. Private repos need no such setting, because
    only collaborators can fork them.
 
-Under ADR-007 the agent moves from Proposes to Acts in a session that may
-push; in one that may not, it still Proposes.
+Under ADR-007 the agent Acts where its session may push, else Proposes.
 
 ## Alternatives considered
 

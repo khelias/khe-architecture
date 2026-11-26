@@ -1,6 +1,6 @@
 # ADR-052: The 3D house engine has a repo of its own, and its consumers vendor a pinned copy
 
-- **Status:** Accepted (2026-11-24)
+- **Status:** Accepted (2026-11-26)
 - **Related:** [ADR-001](001-repo-per-product.md) (one repo per product), [ADR-012](012-estate-architecture-is-public.md) (the same split of public and private), [ADR-014](014-shared-ui-packages.md) (shared packages are presentation), [ADR-043](043-household-parts-are-public-source-built-into-khe-sites.md) (a public part with neutral defaults, a consumer's checkout)
 
 ## Context
@@ -36,7 +36,8 @@ ran on every change to the dashboard.
    2026-11-24). khe-home-assistant does this for its card and its demo, so
    the served paths, the deploy and khe-sites' demo build stay as they were,
    and one revert there undoes an engine bump. khe-makett, a private side
-   project that deploys nothing, is the second consumer.
+   project that deploys only a private preview of its sales site, is the
+   second consumer (amended 2026-11-26).
 4. **khe-house3d deploys nothing.** It has no runner, no secrets and no
    image; its CI runs its check on a GitHub-hosted runner.
 5. **It holds only made-up houses.** A real house's model, devices and look
