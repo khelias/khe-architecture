@@ -1,14 +1,15 @@
 # khe-architecture
 
+[![CI](https://github.com/khelias/khe-architecture/actions/workflows/ci.yml/badge.svg)](https://github.com/khelias/khe-architecture/actions/workflows/ci.yml)
+
 The architecture decisions of the KHE estate, the set of repos under
 [github.com/khelias](https://github.com/khelias) and the homelab that runs
-them. Each decision that spans more than one repo is written down here as
-an architecture decision record (ADR), for publication. They are rendered,
-one page each, at
-[khe.ee/architecture/decisions](https://khe.ee/architecture/decisions/),
-which `khe-sites` builds from this repo on every deploy and at least weekly.
+them, written down for anyone who wants to see why it is built the way it
+is. Each decision that spans more than one repo is an architecture decision
+record (ADR) here, rendered one page each at
+[khe.ee/architecture/decisions](https://khe.ee/architecture/decisions/).
 
-## Reading an ADR
+## How it works
 
 Each file in [`decisions/`](decisions/) is one decision, numbered in the
 order it was made. Line 3 gives its status and date: `Proposed` is still
@@ -20,23 +21,30 @@ wider version of a decision edits its ADR in place and moves the date; a
 reversal gets a new ADR, and the old file stays as a short stub that links
 onward, so every old address keeps working.
 
-## The numbers
-
-[`metrics/agent-loop.json`](metrics/agent-loop.json) holds the counts behind
-[khe.ee/agents](https://khe.ee/agents/): what each check of the agent loop
-found and how its pushes went, refreshed once a week.
-
-## The estate
-
 [`ESTATE.md`](ESTATE.md) lists every repo in the estate, what it is for and
-where it runs.
+where it runs. [`metrics/agent-loop.json`](metrics/agent-loop.json) holds
+the counts behind [khe.ee/agents](https://khe.ee/agents/): what each check
+of the agent loop found and how its pushes went, refreshed once a week.
 
-## Checks
+## Run it
+
+There is no build. The check of every ADR's format and links, and of the
+estate index and the numbers, is:
 
 ```bash
 bash scripts/check.sh
 ```
 
-## License
+## Where it runs
 
-[MIT](LICENSE)
+Nothing here deploys.
+[khe-sites](https://github.com/khelias/khe-sites) builds its architecture and
+agents pages from this repo on every deploy and at least weekly.
+
+## More
+
+- [AGENTS.md](AGENTS.md) - what belongs here and the rules an ADR follows
+
+## Licence
+
+MIT, see [LICENSE](LICENSE).
