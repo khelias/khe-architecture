@@ -5,7 +5,7 @@ Workspace-wide rules (push, review, docs, estate ADRs) are in [khe-workspace
 
 The public architecture of the KHE estate: the estate-level decisions in
 `decisions/`, the estate index `ESTATE.md`, which the `khe-workspace`
-`CLAUDE.md` imports, and `metrics/agent-loop.json`, the agent loop's counts
+`AGENTS.md` points to, and `metrics/agent-loop.json`, the agent loop's counts
 that `khe-sites` shows on `/agents/`
 ([ADR-044](decisions/044-agent-loop-numbers-are-a-counts-only-snapshot-here.md)).
 Markdown, one generated JSON file and one check script; no build. Why this is

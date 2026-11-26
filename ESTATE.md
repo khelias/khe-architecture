@@ -4,13 +4,10 @@ Canonical navigation index for the KHE estate. It lives in the public
 [`khe-architecture`](https://github.com/khelias/khe-architecture) repo,
 beside the estate's decisions in [`decisions/`](decisions/).
 
-Loaded automatically as workspace-level context for Claude Code working
-in `<KHE_ROOT>/`, the checkout of the [`khe-workspace`](https://github.com/khelias/khe-workspace)
-workspace repo: its `CLAUDE.md` `@`-imports this file from
-`repos/khe-architecture/ESTATE.md`. Codex and other agents.md-only tools do not see
-this file (the spec does not support `@`-imports); they read
-`<KHE_ROOT>/AGENTS.md` (personal prefs), which points here by path. When in doubt
-about which repo owns what, start here.
+Agents working in `<KHE_ROOT>/`, the checkout of the [`khe-workspace`](https://github.com/khelias/khe-workspace)
+workspace repo, read it when they need it rather than at every start: the
+workspace `AGENTS.md` points here by path. When in doubt about which repo
+owns what, start here.
 
 ## Product apps
 
