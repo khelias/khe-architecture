@@ -44,8 +44,8 @@ commit on `main` and push.
    reverse, picks between real alternatives, and affects two or more repos
    or decides which repo owns a concern: all three. Not an estate ADR: an
    exception to an estate rule (a point of that rule's ADR), one repo's
-   design (that repo's `docs/adr/` or `docs/decisions/`, which keep the same
-   heading and status pattern), one machine's set-up (its runbook), an
+   design (that repo's `docs/decisions/`, which keeps the same heading and
+   status pattern), one machine's set-up (its runbook), an
    agent convention (`AGENTS.md` or `CLAUDE.md` in `khe-workspace`).
 3. **Format.** Michael Nygard: a
    `# ADR-<number as in the file name>: <Title stating the decision>`

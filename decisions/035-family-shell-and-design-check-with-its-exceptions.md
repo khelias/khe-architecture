@@ -57,7 +57,7 @@ Unejänku's children's build, a product opened directly, a side business.
     switcher, and a khe.ee link in the footer, decided by the shared
     package before first paint. A demo's frame has a neutral line on what
     it shows and keeps private, with a link on for the family
-    ([khe-ui ADR-006](https://github.com/khelias/khe-ui/blob/main/docs/adr/006-the-demo-line-links-the-real-site.md)).
+    ([khe-ui ADR-006](https://github.com/khelias/khe-ui/blob/main/docs/decisions/006-the-demo-line-links-the-real-site.md)).
 12. **Unejänku's family build draws its own header and footer** (its mark,
     name and language switch; the voice credit, privacy notice and a khe.ee
     link) as app markup outside points 1, 6 and 8, with no theme toggle in
