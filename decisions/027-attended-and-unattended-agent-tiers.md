@@ -1,6 +1,6 @@
-# ADR-027: Attended agent sessions run on agent-vm with Home Assistant control, unattended jobs on GitHub-hosted Actions
+# ADR-027: Attended agent sessions with Home Assistant control, unattended jobs on GitHub-hosted Actions
 
-- **Status:** Accepted (2026-11-21)
+- **Status:** Accepted (2026-11-27)
 - **Related:** [ADR-007](007-automated-writers.md), [ADR-023](023-agent-pushes-where-its-session-allows.md), [ADR-037](037-childrens-stories-are-made-by-an-unattended-job.md) (a content writer under points 4-6)
 
 ## Context
@@ -22,22 +22,23 @@ the jobs' tokens in its
 [SECURITY.md](https://github.com/khelias/khe-homelab/blob/main/SECURITY.md#automated-writers).
 
 1. **Two tiers, split by whether a person is in the session.** The attended
-   tier is any session we start and steer on `agent-vm`. The unattended
-   tier is any job that runs without us, in GitHub Actions on a
-   GitHub-hosted runner with Anthropic's Claude Code action, never on
-   `agent-vm` and never on the homelab's self-hosted runner.
+   tier is any session we start and steer, on `agent-vm` or our laptop, and
+   those it starts at our word, even while we sleep, since what asks still
+   waits for us. The unattended tier is any job that runs without us, in
+   GitHub-hosted Actions with Anthropic's Claude Code action, never on
+   `agent-vm` or the homelab's runner.
 2. **The attended tier controls Home Assistant.** Its envelope under
    [ADR-007](007-automated-writers.md): every Home Assistant write asks us,
    in auto mode too, and none touches the heat pump or ventilation, which
    the house's writer register reserves. Fallback: revoke the token.
-3. **The attended tier's Bash runs in Claude Code's sandbox in strict
-   mode,** with no unsandboxed retry, outbound traffic only to a fixed
-   list and the keys out of its reach. A few commands written alone run
-   outside it, and each asks. MCP servers run outside it too, so the VM's
-   are a root-owned list, each running a root-owned copy no session can
-   change until we rerun the setup and accept its diff; a new device gets
-   such a server. A blocked command is fixed in the VM's template, never by
-   a session.
+3. **The attended tier's Bash on `agent-vm` runs in Claude Code's sandbox
+   in strict mode,** with no unsandboxed retry, outbound traffic only to a
+   fixed list and the keys out of its reach. A few commands written alone
+   run outside it, and each asks. MCP servers run outside it too, so the
+   VM's are a root-owned list, each running a root-owned copy no session
+   can change until we rerun the setup and accept its diff; a new device
+   gets such a server. A blocked command is fixed in the VM's template,
+   never by a session.
 4. **An unattended job never holds a write token while a model runs.** Each
    job is two: one runs Claude with a token that can only read and a fixed
    tool list, and hands its output on as an artifact; a second, with no
@@ -66,20 +67,16 @@ the jobs' tokens in its
 
 ## Alternatives considered
 
-- **An unattended runner on `agent-vm`:** designed and reviewed, but sudo
-  undoes any boundary inside the VM, the runner reaches the LAN, and its
-  controls were ours to build and prove, to open one issue a week. Revisit
-  when a job must reach the homelab.
-- **A second VM for unattended jobs:** fixes sudo, keeps the rest.
-- **Claude Code cloud routines:** they need the Claude GitHub App, which
-  gives cloud sessions write access past the commit gate.
-- **The homelab's self-hosted runner:** it deploys to production and
-  reaches the LAN.
+- **An unattended runner on `agent-vm`, a second VM or the homelab's
+  runner:** sudo undoes any boundary inside the VM, a second VM fixes only
+  that, all three reach the LAN and the runner deploys to production.
+  Revisit when a job must reach the homelab.
+- **Cloud routines:** the Claude GitHub App they need writes past the gate.
 - **The attended tier without the sandbox:** in auto mode the classifier,
   not a person, approves most commands; the sandbox keeps the keys and the
   LAN out of their reach.
 - **MCP servers registered by the session:** a session could rewrite them
-  and the code they run, which then runs outside the sandbox.
+  and their code, which runs outside the sandbox.
 
 ## Consequences
 
@@ -88,3 +85,6 @@ the jobs' tokens in its
   homelab has to be in GitHub already.
 - The subscription token and each API key in GitHub are credentials to
   revoke when the plan changes hands.
+- Sessions on our laptop run without point 3's strict sandbox; the commit
+  gate and the prompts that wait for us are their limit. Nothing schedules
+  them, so ADR-023's revisit on unattended pushes is not reached.
