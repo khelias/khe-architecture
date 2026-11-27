@@ -1,6 +1,6 @@
 # ADR-035: The family covers the application shell, a design check enforces it, and named rooms keep their own look
 
-- **Status:** Accepted (2026-11-24)
+- **Status:** Accepted (2026-11-27)
 - **Supersedes:** [ADR-021](021-family-shell-and-design-check.md), [ADR-025](025-the-house-dashboard-keeps-its-own-look.md), [ADR-028](028-the-stories-room-keeps-its-own-look.md), [ADR-030](030-the-portfolio-frame-and-the-product-view.md), [ADR-032](032-unejanku-owns-its-header-and-footer.md)
 - **Related:** [ADR-014](014-shared-ui-packages.md), [ADR-031](031-stories-public-app-private-stories-audio-outside-git.md)
 
@@ -50,14 +50,14 @@ Unejänku's children's build, a product opened directly, a side business.
 10. **The stories room's content keeps its own look** on both builds
     ([ADR-031](031-stories-public-app-private-stories-audio-outside-git.md)):
     system type, a reading serif, large radii, translucent materials, no check.
-11. **A product page has two views.** The KHE header is the portfolio
-    frame, always on khe.ee pages, the games hub and the demos. A product
-    page shows it for a visit from a frame page; otherwise, and always when
-    installed, the product view: its own title, theme toggle and language
-    switcher, and a khe.ee link in the footer, decided by the shared
-    package before first paint. A demo's frame has a neutral line on what
-    it shows and keeps private, with a link on for the family
-    ([khe-ui ADR-006](https://github.com/khelias/khe-ui/blob/main/docs/decisions/006-the-demo-line-links-the-real-site.md)).
+11. **A product page has two views.** The KHE header is the portfolio frame,
+    always on khe.ee pages, the games hub and the demos. A product page shows
+    it for a visit from a frame page; otherwise, and always when installed, the
+    product view: its own title, theme toggle and language switcher, and a
+    khe.ee link in the footer, decided by the shared package before first
+    paint. On a phone a game screen may hide it during play; the picker keeps
+    it. A demo's frame has a neutral line on what it shows and keeps private,
+    with a link on for the family ([khe-ui ADR-006](https://github.com/khelias/khe-ui/blob/main/docs/decisions/006-the-demo-line-links-the-real-site.md)).
 12. **Unejänku's family build draws its own header and footer** (its mark,
     name and language switch; the voice credit, privacy notice and a khe.ee
     link) as app markup outside points 1, 6 and 8, with no theme toggle in
